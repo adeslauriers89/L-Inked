@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
+		A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */; };
+		A67D8D2F1C7BBBD500C34B95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D2E1C7BBBD500C34B95 /* ViewController.swift */; };
+		A67D8D321C7BBBD500C34B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D301C7BBBD500C34B95 /* Main.storyboard */; };
+		A67D8D341C7BBBD500C34B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D331C7BBBD500C34B95 /* Assets.xcassets */; };
+		A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D351C7BBBD500C34B95 /* LaunchScreen.storyboard */; };
+		A67D8D421C7BBBD500C34B95 /* L_InkedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D411C7BBBD500C34B95 /* L_InkedTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A67D8D3E1C7BBBD500C34B95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A67D8D211C7BBBD500C34B95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A67D8D281C7BBBD500C34B95;
+			remoteInfo = "L-Inked";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
+		A67D8D291C7BBBD500C34B95 /* L-Inked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L-Inked.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A67D8D2E1C7BBBD500C34B95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A67D8D311C7BBBD500C34B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A67D8D331C7BBBD500C34B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A67D8D361C7BBBD500C34B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A67D8D381C7BBBD500C34B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A67D8D3D1C7BBBD500C34B95 /* L-InkedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "L-InkedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67D8D411C7BBBD500C34B95 /* L_InkedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L_InkedTests.swift; sourceTree = "<group>"; };
+		A67D8D431C7BBBD500C34B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L_Inked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCE82410A2B00899353B7C08 /* Pods-L-Inked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A67D8D261C7BBBD500C34B95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67D8D3A1C7BBBD500C34B95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2BB6D3E2F1346CC29BC16701 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCE82410A2B00899353B7C08 /* Pods-L-Inked.debug.xcconfig */,
+				1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9797F202639E85DAA7D3CB16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A67D8D201C7BBBD500C34B95 = {
+			isa = PBXGroup;
+			children = (
+				A67D8D2B1C7BBBD500C34B95 /* L-Inked */,
+				A67D8D401C7BBBD500C34B95 /* L-InkedTests */,
+				A67D8D2A1C7BBBD500C34B95 /* Products */,
+				2BB6D3E2F1346CC29BC16701 /* Pods */,
+				9797F202639E85DAA7D3CB16 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A67D8D2A1C7BBBD500C34B95 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A67D8D291C7BBBD500C34B95 /* L-Inked.app */,
+				A67D8D3D1C7BBBD500C34B95 /* L-InkedTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A67D8D2B1C7BBBD500C34B95 /* L-Inked */ = {
+			isa = PBXGroup;
+			children = (
+				A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */,
+				A67D8D2E1C7BBBD500C34B95 /* ViewController.swift */,
+				A67D8D301C7BBBD500C34B95 /* Main.storyboard */,
+				A67D8D331C7BBBD500C34B95 /* Assets.xcassets */,
+				A67D8D351C7BBBD500C34B95 /* LaunchScreen.storyboard */,
+				A67D8D381C7BBBD500C34B95 /* Info.plist */,
+			);
+			path = "L-Inked";
+			sourceTree = "<group>";
+		};
+		A67D8D401C7BBBD500C34B95 /* L-InkedTests */ = {
+			isa = PBXGroup;
+			children = (
+				A67D8D411C7BBBD500C34B95 /* L_InkedTests.swift */,
+				A67D8D431C7BBBD500C34B95 /* Info.plist */,
+			);
+			path = "L-InkedTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A67D8D281C7BBBD500C34B95 /* L-Inked */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A67D8D461C7BBBD500C34B95 /* Build configuration list for PBXNativeTarget "L-Inked" */;
+			buildPhases = (
+				2C85D17636BEAE69BF58142D /* Check Pods Manifest.lock */,
+				A67D8D251C7BBBD500C34B95 /* Sources */,
+				A67D8D261C7BBBD500C34B95 /* Frameworks */,
+				A67D8D271C7BBBD500C34B95 /* Resources */,
+				2E977C4156E5394EC3C105FD /* Embed Pods Frameworks */,
+				F15035E85DF56E30D322484C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "L-Inked";
+			productName = "L-Inked";
+			productReference = A67D8D291C7BBBD500C34B95 /* L-Inked.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A67D8D3C1C7BBBD500C34B95 /* L-InkedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A67D8D491C7BBBD500C34B95 /* Build configuration list for PBXNativeTarget "L-InkedTests" */;
+			buildPhases = (
+				A67D8D391C7BBBD500C34B95 /* Sources */,
+				A67D8D3A1C7BBBD500C34B95 /* Frameworks */,
+				A67D8D3B1C7BBBD500C34B95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A67D8D3F1C7BBBD500C34B95 /* PBXTargetDependency */,
+			);
+			name = "L-InkedTests";
+			productName = "L-InkedTests";
+			productReference = A67D8D3D1C7BBBD500C34B95 /* L-InkedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A67D8D211C7BBBD500C34B95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Adam DesLauriers";
+				TargetAttributes = {
+					A67D8D281C7BBBD500C34B95 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4U2N6J8VHM;
+					};
+					A67D8D3C1C7BBBD500C34B95 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4U2N6J8VHM;
+						TestTargetID = A67D8D281C7BBBD500C34B95;
+					};
+				};
+			};
+			buildConfigurationList = A67D8D241C7BBBD500C34B95 /* Build configuration list for PBXProject "L-Inked" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A67D8D201C7BBBD500C34B95;
+			productRefGroup = A67D8D2A1C7BBBD500C34B95 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A67D8D281C7BBBD500C34B95 /* L-Inked */,
+				A67D8D3C1C7BBBD500C34B95 /* L-InkedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A67D8D271C7BBBD500C34B95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */,
+				A67D8D341C7BBBD500C34B95 /* Assets.xcassets in Resources */,
+				A67D8D321C7BBBD500C34B95 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67D8D3B1C7BBBD500C34B95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C85D17636BEAE69BF58142D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E977C4156E5394EC3C105FD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F15035E85DF56E30D322484C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A67D8D251C7BBBD500C34B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67D8D2F1C7BBBD500C34B95 /* ViewController.swift in Sources */,
+				A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67D8D391C7BBBD500C34B95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A67D8D421C7BBBD500C34B95 /* L_InkedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A67D8D3F1C7BBBD500C34B95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A67D8D281C7BBBD500C34B95 /* L-Inked */;
+			targetProxy = A67D8D3E1C7BBBD500C34B95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A67D8D301C7BBBD500C34B95 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A67D8D311C7BBBD500C34B95 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A67D8D351C7BBBD500C34B95 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A67D8D361C7BBBD500C34B95 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A67D8D441C7BBBD500C34B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A67D8D451C7BBBD500C34B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A67D8D471C7BBBD500C34B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCE82410A2B00899353B7C08 /* Pods-L-Inked.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "L-Inked/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xcode.L-Inked";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A67D8D481C7BBBD500C34B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "L-Inked/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xcode.L-Inked";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A67D8D4A1C7BBBD500C34B95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "L-InkedTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xcode.L-InkedTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/L-Inked.app/L-Inked";
+			};
+			name = Debug;
+		};
+		A67D8D4B1C7BBBD500C34B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "L-InkedTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "xcode.L-InkedTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/L-Inked.app/L-Inked";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A67D8D241C7BBBD500C34B95 /* Build configuration list for PBXProject "L-Inked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67D8D441C7BBBD500C34B95 /* Debug */,
+				A67D8D451C7BBBD500C34B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A67D8D461C7BBBD500C34B95 /* Build configuration list for PBXNativeTarget "L-Inked" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67D8D471C7BBBD500C34B95 /* Debug */,
+				A67D8D481C7BBBD500C34B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A67D8D491C7BBBD500C34B95 /* Build configuration list for PBXNativeTarget "L-InkedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67D8D4A1C7BBBD500C34B95 /* Debug */,
+				A67D8D4B1C7BBBD500C34B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A67D8D211C7BBBD500C34B95 /* Project object */;
+}
