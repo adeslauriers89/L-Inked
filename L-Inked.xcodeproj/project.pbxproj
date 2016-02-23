@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
+		A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */; };
+		A66FE7641C7CF3F8004FE3F0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */; };
+		A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */; };
 		A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */; };
 		A67D8D321C7BBBD500C34B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D301C7BBBD500C34B95 /* Main.storyboard */; };
 		A67D8D341C7BBBD500C34B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D331C7BBBD500C34B95 /* Assets.xcassets */; };
@@ -19,7 +22,6 @@
 		A67D8D581C7BC57100C34B95 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D571C7BC57100C34B95 /* LoginView.swift */; };
 		A67D8D5A1C7BC58900C34B95 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D591C7BC58900C34B95 /* SignupView.swift */; };
 		A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D5B1C7BEF3500C34B95 /* APIKeys.swift */; };
-		A67D8D5E1C7BFD3600C34B95 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D5D1C7BFD3600C34B95 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
+		A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadTattooViewController.swift; sourceTree = "<group>"; };
 		A67D8D291C7BBBD500C34B95 /* L-Inked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L-Inked.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A67D8D311C7BBBD500C34B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,7 +54,6 @@
 		A67D8D571C7BC57100C34B95 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A67D8D591C7BC58900C34B95 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		A67D8D5B1C7BEF3500C34B95 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		A67D8D5D1C7BFD3600C34B95 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L_Inked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE82410A2B00899353B7C08 /* Pods-L-Inked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,15 @@
 				BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A66FE7671C7D010E004FE3F0 /* Artist VCs */ = {
+			isa = PBXGroup;
+			children = (
+				A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */,
+				A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */,
+			);
+			name = "Artist VCs";
 			sourceTree = "<group>";
 		};
 		A67D8D201C7BBBD500C34B95 = {
@@ -136,7 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				A67D8D4C1C7BC26B00C34B95 /* LoginSignupViewController.swift */,
-				A67D8D5D1C7BFD3600C34B95 /* HomeViewController.swift */,
+				A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */,
+				A66FE7671C7D010E004FE3F0 /* Artist VCs */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -338,9 +352,11 @@
 				A67D8D4D1C7BC26B00C34B95 /* LoginSignupViewController.swift in Sources */,
 				A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */,
 				A67D8D581C7BC57100C34B95 /* LoginView.swift in Sources */,
+				A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */,
+				A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */,
 				A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */,
 				A67D8D5A1C7BC58900C34B95 /* SignupView.swift in Sources */,
-				A67D8D5E1C7BFD3600C34B95 /* HomeViewController.swift in Sources */,
+				A66FE7641C7CF3F8004FE3F0 /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

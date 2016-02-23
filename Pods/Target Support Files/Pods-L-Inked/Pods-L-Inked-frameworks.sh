@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-L-Inked/Bolts.framework"
+  install_framework "Pods-L-Inked/FMMosaicLayout.framework"
   install_framework "Pods-L-Inked/Parse.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-L-Inked/Bolts.framework"
+  install_framework "Pods-L-Inked/FMMosaicLayout.framework"
   install_framework "Pods-L-Inked/Parse.framework"
 fi

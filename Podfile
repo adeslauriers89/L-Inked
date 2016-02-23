@@ -6,6 +6,7 @@
 target 'L-Inked' do
 
    pod 'Parse'
+   pod 'FMMosaicLayout'
 
 end
 

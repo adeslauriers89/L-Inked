@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIscrollview {
     
     
     override func viewDidLoad() {
