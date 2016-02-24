@@ -16,6 +16,8 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     //MARK: Properties
     
     @IBOutlet weak var profileButton: UIBarButtonItem!
+    var tattoosArray = [Tattoo]()
+    
     
     //MARK: View controller life cycle
     
@@ -27,6 +29,23 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     
     override func viewWillAppear(animated: Bool) {
         
+        let query = PFQuery(className: "Tattoo")
+        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
+            if objects != nil {
+            
+                
+                for object in objects! {
+                    
+                    let tattoo = object as! Tattoo
+                    self.tattoosArray.append(tattoo)
+                    print(self.tattoosArray)
+                }
+            }
+        }
+        
+        print(tattoosArray)
+        
+        
         let currentUser = PFUser.currentUser()
         
         print("\(currentUser)")
@@ -35,7 +54,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             navigationItem.leftBarButtonItem = nil
             navigationItem.hidesBackButton = true
         } else {
-            print("Youre an aritist! :P")
+            print("Youre an aritist! ")
             
         }
 
@@ -44,6 +63,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     //MARK: CollectionVC Delegate
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return 8
     }
     

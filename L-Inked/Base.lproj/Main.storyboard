@@ -18,48 +18,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQE-JO-jcS" userLabel="Content View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQE-JO-jcS" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-xr-P08">
-                                        <rect key="frame" x="163" y="558" width="48" height="30"/>
-                                        <state key="normal" title="Signup"/>
-                                        <connections>
-                                            <action selector="signupButtonPressed:" destination="Ppq-dh-fSX" eventType="touchUpInside" id="kuQ-2a-O52"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KT-KD-jkc">
-                                        <rect key="frame" x="168" y="520" width="38" height="30"/>
-                                        <state key="normal" title="Login"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KT-KD-jkc">
+                                        <rect key="frame" x="37" y="515" width="300" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WKt-We-cHq"/>
+                                            <constraint firstAttribute="width" constant="300" id="hPr-ML-k74"/>
+                                        </constraints>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="Ppq-dh-fSX" eventType="touchUpInside" id="vo5-vI-SBl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By3-d8-FXd">
-                                        <rect key="frame" x="150" y="596" width="74" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By3-d8-FXd">
+                                        <rect key="frame" x="150" y="621" width="74" height="30"/>
                                         <state key="normal" title="No Thanks"/>
                                         <connections>
                                             <segue destination="5dF-fI-r7C" kind="show" identifier="showMainViewControllerSegue" id="DPu-dV-yp2"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiv-xr-P08">
+                                        <rect key="frame" x="37" y="571" width="300" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="L3c-wo-9pk"/>
+                                            <constraint firstAttribute="width" constant="300" id="yb9-tF-NtG"/>
+                                        </constraints>
+                                        <state key="normal" title="Signup">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupButtonPressed:" destination="Ppq-dh-fSX" eventType="touchUpInside" id="kuQ-2a-O52"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.032791940794736789" green="0.97648540298947384" blue="0.70327919406052641" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="By3-d8-FXd" secondAttribute="bottom" constant="41" id="1rO-G3-vcn"/>
-                                    <constraint firstItem="By3-d8-FXd" firstAttribute="top" secondItem="fiv-xr-P08" secondAttribute="bottom" constant="8" id="BGR-1U-CAc"/>
-                                    <constraint firstItem="fiv-xr-P08" firstAttribute="top" secondItem="6KT-KD-jkc" secondAttribute="bottom" constant="8" id="Qay-nO-K4G"/>
-                                    <constraint firstItem="By3-d8-FXd" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="a50-R5-XZT"/>
-                                    <constraint firstItem="fiv-xr-P08" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="dRZ-65-Rro"/>
-                                    <constraint firstItem="6KT-KD-jkc" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="e0j-jM-wZA"/>
+                                    <constraint firstAttribute="bottom" secondItem="By3-d8-FXd" secondAttribute="bottom" constant="16" id="5jG-kJ-EQg"/>
+                                    <constraint firstItem="By3-d8-FXd" firstAttribute="top" secondItem="fiv-xr-P08" secondAttribute="bottom" constant="10" id="9aJ-EY-hDI"/>
+                                    <constraint firstItem="By3-d8-FXd" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="AQC-5s-faE"/>
+                                    <constraint firstItem="fiv-xr-P08" firstAttribute="top" secondItem="6KT-KD-jkc" secondAttribute="bottom" constant="16" id="Ae1-yq-AjJ"/>
+                                    <constraint firstItem="fiv-xr-P08" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="GsW-43-rk6"/>
+                                    <constraint firstItem="6KT-KD-jkc" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="dXH-TQ-9OW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MQE-JO-jcS" secondAttribute="trailing" id="68T-Nq-4kk"/>
-                            <constraint firstItem="MQE-JO-jcS" firstAttribute="top" secondItem="XPF-nm-k31" secondAttribute="bottom" constant="-20" id="8Ex-QA-1MB"/>
-                            <constraint firstItem="MQE-JO-jcS" firstAttribute="leading" secondItem="t1u-nS-8YT" secondAttribute="leading" id="O01-hT-2Nl"/>
-                            <constraint firstItem="6gb-MK-sxR" firstAttribute="top" secondItem="MQE-JO-jcS" secondAttribute="bottom" id="n0u-r5-ik9"/>
+                            <constraint firstAttribute="trailing" secondItem="MQE-JO-jcS" secondAttribute="trailing" id="0wC-Oq-10h"/>
+                            <constraint firstItem="MQE-JO-jcS" firstAttribute="top" secondItem="t1u-nS-8YT" secondAttribute="top" id="SFh-X0-QOE"/>
+                            <constraint firstItem="MQE-JO-jcS" firstAttribute="leading" secondItem="t1u-nS-8YT" secondAttribute="leading" id="XKI-Kw-QUg"/>
+                            <constraint firstItem="6gb-MK-sxR" firstAttribute="top" secondItem="MQE-JO-jcS" secondAttribute="bottom" id="Y0O-sa-iSZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jL7-I9-zBp"/>
@@ -88,14 +102,22 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dbl-eO-UIv">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dbl-eO-UIv" customClass="CustomCollectionViewCell" customModule="L_Inked" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Mu-HII" customClass="PFImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="tattooImageView" destination="caM-Mu-HII" id="YWC-d3-Qny"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

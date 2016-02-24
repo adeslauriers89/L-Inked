@@ -35,35 +35,35 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a tattoo artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97m-AX-GKX">
-                    <rect key="frame" x="77" y="174" width="141" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUq-1u-RpR">
-                    <rect key="frame" x="98" y="210.5" width="49" height="30"/>
+                    <rect key="frame" x="98" y="207.5" width="49" height="30"/>
                     <state key="normal" title="Submit"/>
                     <connections>
                         <action selector="signupSubmitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="xtP-0v-rd4"/>
                     </connections>
                 </button>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XNr-UC-2Mb">
-                    <rect key="frame" x="8" y="169" width="51" height="31"/>
+                    <rect key="frame" x="8" y="162" width="51" height="31"/>
                 </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a tattoo artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97m-AX-GKX">
+                    <rect key="frame" x="75" y="167" width="141" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="0.0" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="97m-AX-GKX" secondAttribute="trailing" constant="26" id="1Xc-zw-DzR"/>
-                <constraint firstItem="LUq-1u-RpR" firstAttribute="top" secondItem="97m-AX-GKX" secondAttribute="bottom" constant="16" id="3ZJ-9k-Juo"/>
-                <constraint firstItem="97m-AX-GKX" firstAttribute="leading" secondItem="XNr-UC-2Mb" secondAttribute="trailing" constant="20" id="5bE-9K-N0z"/>
+                <constraint firstAttribute="trailing" secondItem="97m-AX-GKX" secondAttribute="trailing" constant="28" id="1Xc-zw-DzR"/>
+                <constraint firstItem="LUq-1u-RpR" firstAttribute="top" secondItem="97m-AX-GKX" secondAttribute="bottom" constant="20" id="3ZJ-9k-Juo"/>
+                <constraint firstItem="97m-AX-GKX" firstAttribute="leading" secondItem="XNr-UC-2Mb" secondAttribute="trailing" constant="18" id="5bE-9K-N0z"/>
                 <constraint firstItem="dQL-6o-fd2" firstAttribute="top" secondItem="uHU-07-CV9" secondAttribute="bottom" constant="16" id="CAO-ez-LSY"/>
                 <constraint firstItem="uHU-07-CV9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CzB-13-juB"/>
                 <constraint firstItem="uHU-07-CV9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Lsh-Ff-rVr"/>
                 <constraint firstItem="LUq-1u-RpR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ngp-cn-DrY"/>
                 <constraint firstItem="XNr-UC-2Mb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Scc-fC-hcH"/>
-                <constraint firstItem="97m-AX-GKX" firstAttribute="top" secondItem="o0s-6Z-lSr" secondAttribute="bottom" constant="32" id="WRb-l3-6nY"/>
-                <constraint firstItem="XNr-UC-2Mb" firstAttribute="top" secondItem="o0s-6Z-lSr" secondAttribute="bottom" constant="27" id="Whz-jr-3j0"/>
+                <constraint firstItem="97m-AX-GKX" firstAttribute="top" secondItem="o0s-6Z-lSr" secondAttribute="bottom" constant="25" id="WRb-l3-6nY"/>
+                <constraint firstItem="XNr-UC-2Mb" firstAttribute="top" secondItem="o0s-6Z-lSr" secondAttribute="bottom" constant="20" id="Whz-jr-3j0"/>
                 <constraint firstItem="o0s-6Z-lSr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="arU-M6-Nx8"/>
                 <constraint firstItem="dQL-6o-fd2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ckC-pK-ZFF"/>
                 <constraint firstItem="o0s-6Z-lSr" firstAttribute="top" secondItem="dQL-6o-fd2" secondAttribute="bottom" constant="16" id="glm-Pw-0w9"/>

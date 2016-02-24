@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
+		A60388B31C7E2FEA00A837B7 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */; };
+		A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B51C7E31EC00A837B7 /* VideoCutter.swift */; };
+		A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */; };
 		A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */; };
 		A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */; };
 		A66FE7641C7CF3F8004FE3F0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */; };
@@ -37,6 +40,9 @@
 
 /* Begin PBXFileReference section */
 		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
+		A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
+		A60388B51C7E31EC00A837B7 /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
+		A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tattoo.swift; sourceTree = "<group>"; };
 		A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +102,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A60388B41C7E301200A837B7 /* VideoSplashVC */ = {
+			isa = PBXGroup;
+			children = (
+				A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */,
+				A60388B51C7E31EC00A837B7 /* VideoCutter.swift */,
+			);
+			name = VideoSplashVC;
+			sourceTree = "<group>";
+		};
 		A66FE7671C7D010E004FE3F0 /* Artist VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +167,7 @@
 			children = (
 				A67D8D4C1C7BC26B00C34B95 /* LoginSignupViewController.swift */,
 				A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */,
+				A60388B41C7E301200A837B7 /* VideoSplashVC */,
 				A66FE7671C7D010E004FE3F0 /* Artist VCs */,
 			);
 			name = Controllers;
@@ -191,6 +207,7 @@
 				A67D8D591C7BC58900C34B95 /* SignupView.swift */,
 				A67D8D521C7BC33800C34B95 /* LoginView.xib */,
 				A67D8D571C7BC57100C34B95 /* LoginView.swift */,
+				A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -354,9 +371,12 @@
 			files = (
 				A67D8D4D1C7BC26B00C34B95 /* LoginSignupViewController.swift in Sources */,
 				A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */,
+				A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */,
 				A67D8D581C7BC57100C34B95 /* LoginView.swift in Sources */,
+				A60388B31C7E2FEA00A837B7 /* VideoSplashViewController.swift in Sources */,
 				A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */,
 				A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */,
+				A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */,
 				A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */,
 				A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */,
 				A67D8D5A1C7BC58900C34B95 /* SignupView.swift in Sources */,

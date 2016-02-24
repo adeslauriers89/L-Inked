@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-L-Inked/Bolts.framework"
   install_framework "Pods-L-Inked/FMMosaicLayout.framework"
   install_framework "Pods-L-Inked/Parse.framework"
+  install_framework "Pods-L-Inked/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-L-Inked/Bolts.framework"
   install_framework "Pods-L-Inked/FMMosaicLayout.framework"
   install_framework "Pods-L-Inked/Parse.framework"
+  install_framework "Pods-L-Inked/ParseUI.framework"
 fi

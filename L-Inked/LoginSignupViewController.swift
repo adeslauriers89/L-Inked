@@ -27,15 +27,11 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
      
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        
     }
     
     override func viewDidLoad() {
-    
-        
         
     }
-    
     
     //MARK: Actions
 
@@ -49,11 +45,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             contentView.addSubview(loginViewScreen)
             addConstraintsToLogin()
             loginViewScreen.delegate = self
-
         }
-        
-        
-        
     }
     
     @IBAction func signupButtonPressed(sender: UIButton) {
@@ -67,10 +59,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             contentView.addSubview(signupViewScreen)
             addConstraintsToSignup()
             signupViewScreen.delegate = self
-    
         }
-        
-        
     }
 
     func login(username: String, password: String) {
@@ -108,7 +97,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         let xCenterConstraint = NSLayoutConstraint(item: signupViewScreen!, attribute: .CenterX, relatedBy: .Equal , toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0)
         contentView.addConstraint(xCenterConstraint)
         
-        
         let heightContstraint = NSLayoutConstraint(item: signupViewScreen!, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 250)
         contentView.addConstraint(heightContstraint)
         
@@ -117,7 +105,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         let yCenterConstraint = NSLayoutConstraint(item: signupViewScreen!, attribute: .CenterY, relatedBy: .Equal , toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0)
         contentView.addConstraint(yCenterConstraint)
-     
     }
     
     func addConstraintsToLogin() {
@@ -125,7 +112,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         let xCenterConstraint = NSLayoutConstraint(item: loginViewScreen!, attribute: .CenterX, relatedBy: .Equal , toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0)
         contentView.addConstraint(xCenterConstraint)
-        
         
         let heightContstraint = NSLayoutConstraint(item: loginViewScreen!, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 250)
         contentView.addConstraint(heightContstraint)
@@ -135,9 +121,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         let yCenterConstraint = NSLayoutConstraint(item: loginViewScreen!, attribute: .CenterY, relatedBy: .Equal , toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0)
         contentView.addConstraint(yCenterConstraint)
-        
-        
-        
+
     }
     
     
