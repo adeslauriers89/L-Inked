@@ -110,9 +110,11 @@
                                 <segue destination="LLU-Mp-tjc" kind="show" id="BPq-yD-ran"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="MbM-lg-JX3"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="profileButton" destination="nFF-XM-UPp" id="eYX-Bg-60V"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnE-pn-9LA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,7 +167,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckedButton" translatesAutoresizingMaskIntoConstraints="NO" id="yrw-l5-8EZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user" translatesAutoresizingMaskIntoConstraints="NO" id="yrw-l5-8EZ">
                                 <rect key="frame" x="111" y="85" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="Jh1-76-0uu"/>
@@ -207,7 +209,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="18K-h5-yZ5"/>
+                    <navigationItem key="navigationItem" id="18K-h5-yZ5">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="MdU-Ww-Fks">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="LLU-Mp-tjc" id="iQn-il-3HP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -233,9 +241,56 @@
                     <view key="view" contentMode="scaleToFill" id="B1a-yN-Ul9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-qr-oG8">
+                                <rect key="frame" x="108" y="496" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="xuG-zD-mlA" eventType="touchUpInside" id="VJn-0P-qfN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7A-Xp-4go">
+                                <rect key="frame" x="220" y="496" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="xuG-zD-mlA" eventType="touchUpInside" id="BqG-JX-Yxg"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7I-0T-uAc">
+                                <rect key="frame" x="62" y="364" width="250" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9pp-Xi-eNN">
+                                <rect key="frame" x="62" y="89" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="aA3-cj-ZkF"/>
+                                    <constraint firstAttribute="height" constant="250" id="qv5-MG-hPn"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9pp-Xi-eNN" firstAttribute="top" secondItem="5B7-gY-Wxx" secondAttribute="bottom" constant="25" id="AWC-s7-z67"/>
+                            <constraint firstItem="a7I-0T-uAc" firstAttribute="top" secondItem="9pp-Xi-eNN" secondAttribute="bottom" constant="25" id="W8I-Il-r5R"/>
+                            <constraint firstItem="a7I-0T-uAc" firstAttribute="width" secondItem="9pp-Xi-eNN" secondAttribute="width" id="Y7h-mr-YDz"/>
+                            <constraint firstItem="9pp-Xi-eNN" firstAttribute="centerX" secondItem="B1a-yN-Ul9" secondAttribute="centerX" id="g3M-gi-3VT"/>
+                            <constraint firstItem="a7I-0T-uAc" firstAttribute="centerX" secondItem="B1a-yN-Ul9" secondAttribute="centerX" id="rrW-G7-uiG"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8zI-kt-Az3">
+                        <barButtonItem key="rightBarButtonItem" title="Add Image" id="mSX-pF-SdS">
+                            <connections>
+                                <action selector="addImageButtonPressed:" destination="xuG-zD-mlA" id="SbD-WG-04j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tattooDescriptionTextField" destination="a7I-0T-uAc" id="mJG-bQ-dtx"/>
+                        <outlet property="tattooToUpload" destination="9pp-Xi-eNN" id="a5V-gi-Lw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRs-kw-K9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,6 +321,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="uncheckedButton" width="181" height="182"/>
+        <image name="default_user" width="150" height="150"/>
     </resources>
 </document>

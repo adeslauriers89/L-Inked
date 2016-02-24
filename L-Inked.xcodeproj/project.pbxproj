@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
+		A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */; };
 		A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */; };
 		A66FE7641C7CF3F8004FE3F0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */; };
 		A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
+		A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tattoo.swift; sourceTree = "<group>"; };
 		A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadTattooViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */,
+				A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */,
 				A67D8D581C7BC57100C34B95 /* LoginView.swift in Sources */,
 				A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */,
+				A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */,
 				A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */,
 				A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */,
 				A67D8D5A1C7BC58900C34B95 /* SignupView.swift in Sources */,

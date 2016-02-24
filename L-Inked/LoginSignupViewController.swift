@@ -75,7 +75,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
 
     func login(username: String, password: String) {
         PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
-            if let user = user {
+            if  (user != nil) {
                 print("logged in")
                 self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
             } else {

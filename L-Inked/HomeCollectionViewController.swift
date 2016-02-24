@@ -8,24 +8,37 @@
 
 import UIKit
 import FMMosaicLayout
+import Parse
 
 
 class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDelegate {
     
     //MARK: Properties
     
+    @IBOutlet weak var profileButton: UIBarButtonItem!
     
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
-        
         navigationController?.setNavigationBarHidden(false, animated: false)
-        //navigationController?.navigationBar.backItem.
-        
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
-
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         
+        let currentUser = PFUser.currentUser()
+        
+        print("\(currentUser)")
+        
+        if currentUser == nil  || currentUser!["isArtist"].boolValue == false  {
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.hidesBackButton = true
+        } else {
+            print("Youre an aritist! :P")
+            
+        }
+
     }
     
     //MARK: CollectionVC Delegate
