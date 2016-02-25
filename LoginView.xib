@@ -21,6 +21,8 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TiZ-zx-SuE">
                     <rect key="frame" x="60" y="135" width="49" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Submit"/>
                     <connections>
                         <action selector="loginSubmitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="dKO-HC-3el"/>

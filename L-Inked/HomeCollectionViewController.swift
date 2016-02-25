@@ -18,6 +18,8 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     @IBOutlet weak var profileButton: UIBarButtonItem!
     var tattoosArray = [Tattoo]()
     
+    var artistsArray = [PFObject]()
+    
     
     //MARK: View controller life cycle
     
@@ -28,54 +30,104 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        let query = PFQuery(className: "Tattoo")
-        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error) -> Void in
-            if objects != nil {
+
+        let query = Tattoo.query()
+        query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
-                
-                for object in objects! {
-                    
-                    let tattoo = object as! Tattoo
-                    self.tattoosArray.append(tattoo)
-                    print(self.tattoosArray)
-                }
+            guard let tattoos = objects as? [Tattoo] else {
+                return
             }
-        }
-        
-        print(tattoosArray)
-        
+            self.tattoosArray = tattoos
+            self.collectionView?.reloadData()
+           // print(self.tattoosArray)
+
+            }
         
         let currentUser = PFUser.currentUser()
-        
-        print("\(currentUser)")
-        
-        if currentUser == nil  || currentUser!["isArtist"].boolValue == false  {
+            if currentUser == nil  || currentUser!["isArtist"].boolValue == false  {
             navigationItem.leftBarButtonItem = nil
             navigationItem.hidesBackButton = true
         } else {
-            print("Youre an aritist! ")
+            print("Youre an artist! ")
             
         }
+        /////////////////////////////////////
+        /////////
+        ///// FETCH TATTOOS FOR SPECIFIC ARTIST
+        
+        
+        
+        
+//        let queryArtists = PFQuery(className:"Tattoo")
+//        queryArtists.whereKey("tattooArtist", equalTo:currentUser!)
+//        queryArtists.findObjectsInBackgroundWithBlock {
+//            (objects: [PFObject]?, error: NSError?) -> Void in
+//            
+//            if error == nil {
+//                // The find succeeded.
+//                print("Successfully retrieved \(objects!.count) tattoos.")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        print(object.objectId)
+//                    }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!.userInfo)")
+//            }
+//        }
 
+        //////
+        /////////////////////////////////////////
     }
     
     //MARK: CollectionVC Delegate
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 8
+        return tattoosArray.count
+ 
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> CustomCollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.redColor()
         
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
+        cell.tattooImageView.image = nil
+        
+       let individual = tattoosArray[indexPath.row]
+        
+        individual.tattooImage.getDataInBackgroundWithBlock { (data, error) -> Void in
+
+            guard let data = data,
+                let image = UIImage(data: data) else { return }
+            cell.tattooImageView.image = image
+
+            
+        }
         return cell
     }
     
+    //MARK: Segue
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "tattooDetailViewControllerSegue" {
+            let destinationViewController = segue.destinationViewController as! TattooDetailViewController
+            if let cell = sender as? CustomCollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) {
+                
+                destinationViewController.tattoo = tattoosArray[indexPath.row]
+            }
+       
+   
+            
+            
+        }
+        
+
+    }
     
     
     //MARK: MosaicLayout Delegate

@@ -56,14 +56,25 @@
                                             <action selector="signupButtonPressed:" destination="Ppq-dh-fSX" eventType="touchUpInside" id="kuQ-2a-O52"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L-Inked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rY-Lw-dHn">
+                                        <rect key="frame" x="119.5" y="40" width="136" height="45.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="136" id="Z5V-Ii-3I5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="36"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="By3-d8-FXd" secondAttribute="bottom" constant="16" id="5jG-kJ-EQg"/>
                                     <constraint firstItem="By3-d8-FXd" firstAttribute="top" secondItem="fiv-xr-P08" secondAttribute="bottom" constant="10" id="9aJ-EY-hDI"/>
                                     <constraint firstItem="By3-d8-FXd" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="AQC-5s-faE"/>
                                     <constraint firstItem="fiv-xr-P08" firstAttribute="top" secondItem="6KT-KD-jkc" secondAttribute="bottom" constant="16" id="Ae1-yq-AjJ"/>
+                                    <constraint firstItem="2rY-Lw-dHn" firstAttribute="top" secondItem="MQE-JO-jcS" secondAttribute="top" constant="40" id="Bc3-Sf-cDA"/>
                                     <constraint firstItem="fiv-xr-P08" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="GsW-43-rk6"/>
+                                    <constraint firstItem="2rY-Lw-dHn" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="X6G-Oq-IqG"/>
                                     <constraint firstItem="6KT-KD-jkc" firstAttribute="centerX" secondItem="MQE-JO-jcS" secondAttribute="centerX" id="dXH-TQ-9OW"/>
                                 </constraints>
                             </view>
@@ -86,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swc-0O-JbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="337"/>
+            <point key="canvasLocation" x="1853.5" y="336.5"/>
         </scene>
         <!--Home Collection View Controller-->
         <scene sceneID="Pw6-DX-giH">
@@ -96,27 +107,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jwf-AO-Pw9">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="140" height="140"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dbl-eO-UIv" customClass="CustomCollectionViewCell" customModule="L_Inked" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Mu-HII" customClass="PFImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="caM-Mu-HII">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="caM-Mu-HII" secondAttribute="bottom" id="03n-MN-OV9"/>
+                                    <constraint firstItem="caM-Mu-HII" firstAttribute="leading" secondItem="dbl-eO-UIv" secondAttribute="leading" id="CZh-dl-0s5"/>
+                                    <constraint firstAttribute="trailing" secondItem="caM-Mu-HII" secondAttribute="trailing" id="MIU-yc-8xt"/>
+                                    <constraint firstItem="caM-Mu-HII" firstAttribute="top" secondItem="dbl-eO-UIv" secondAttribute="top" id="as3-Zg-RyP"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="tattooImageView" destination="caM-Mu-HII" id="YWC-d3-Qny"/>
+                                    <outlet property="tattooImageView" destination="caM-Mu-HII" id="Clp-rj-pNS"/>
+                                    <segue destination="JdY-83-LsZ" kind="show" identifier="tattooDetailViewControllerSegue" id="vrE-gy-vM0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -141,6 +159,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnE-pn-9LA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2299.5" y="336.5"/>
+        </scene>
+        <!--Tattoo Detail View Controller-->
+        <scene sceneID="8dz-fp-rno">
+            <objects>
+                <viewController id="JdY-83-LsZ" customClass="TattooDetailViewController" customModule="L_Inked" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WHa-KC-k4k"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oq2-9Q-VL0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JMt-zB-eYm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzR-4s-Jl1">
+                                <rect key="frame" x="76" y="491" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-eu-Mv8">
+                                <rect key="frame" x="188" y="474" width="74" height="64"/>
+                                <state key="normal" title="Button" image="tattoo_machine"/>
+                                <connections>
+                                    <segue destination="ZMo-6I-43I" kind="show" id="2ZM-XT-qxC"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5YV-bz-Szd" customClass="PFImageView">
+                                <rect key="frame" x="22" y="83" width="330" height="330"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="Zcj-mQ-2kD"/>
+                                    <constraint firstAttribute="height" constant="330" id="sLz-6d-wRf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5YV-bz-Szd" firstAttribute="centerX" secondItem="JMt-zB-eYm" secondAttribute="centerX" id="Cjv-le-6Wj"/>
+                            <constraint firstItem="5YV-bz-Szd" firstAttribute="top" secondItem="WHa-KC-k4k" secondAttribute="bottom" constant="19" id="nDw-wE-li6"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tattooDetailImageView" destination="5YV-bz-Szd" id="vtd-iP-38i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UuM-Jk-Wte" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2762.5" y="336.5"/>
+        </scene>
+        <!--Artist Profile View Controller-->
+        <scene sceneID="bio-mT-Mx5">
+            <objects>
+                <viewController id="ZMo-6I-43I" customClass="ArtistProfileViewController" customModule="L_Inked" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QYW-SO-Kbx"/>
+                        <viewControllerLayoutGuide type="bottom" id="FQY-QO-Kfk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eTm-nu-1hd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAC-54-Id3">
+                                <rect key="frame" x="64.5" y="323.5" width="246" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="246" id="s6n-z2-Elw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GAC-54-Id3" firstAttribute="centerY" secondItem="eTm-nu-1hd" secondAttribute="centerY" id="n8L-Pp-Xxc"/>
+                            <constraint firstItem="GAC-54-Id3" firstAttribute="centerX" secondItem="eTm-nu-1hd" secondAttribute="centerX" id="s1S-6k-jgi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="artistNameLabel" destination="GAC-54-Id3" id="kZg-ls-q0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="py3-xn-BBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3310.5" y="302.5"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="DtC-cR-QjP">
@@ -302,7 +402,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8zI-kt-Az3">
-                        <barButtonItem key="rightBarButtonItem" title="Add Image" id="mSX-pF-SdS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="mSX-pF-SdS">
                             <connections>
                                 <action selector="addImageButtonPressed:" destination="xuG-zD-mlA" id="SbD-WG-04j"/>
                             </connections>
@@ -344,5 +444,6 @@
     </scenes>
     <resources>
         <image name="default_user" width="150" height="150"/>
+        <image name="tattoo_machine" width="64" height="64"/>
     </resources>
 </document>

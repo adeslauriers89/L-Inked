@@ -8,12 +8,13 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
 
-    @IBOutlet weak var tattooImageView: PFImageView!
+    @IBOutlet weak var tattooImageView: UIImageView!
     
     
 }

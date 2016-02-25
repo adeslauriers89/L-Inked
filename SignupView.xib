@@ -37,6 +37,8 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUq-1u-RpR">
                     <rect key="frame" x="98" y="207.5" width="49" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Submit"/>
                     <connections>
                         <action selector="signupSubmitButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="xtP-0v-rd4"/>

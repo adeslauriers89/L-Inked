@@ -10,6 +10,11 @@ import UIKit
 import Parse
 
 class Tattoo: PFObject, PFSubclassing {
+    
+    @NSManaged var tattooArtist: PFUser
+    @NSManaged var tattooDescription: String
+    @NSManaged var tattooImage: PFFile
+    
     override class func initialize() {
         struct Static {
             static var onceToken : dispatch_once_t = 0;

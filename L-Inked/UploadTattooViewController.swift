@@ -25,40 +25,43 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBAction func saveButtonPressed(sender: UIButton) {
         
-        let user = PFUser.currentUser()
-        let newTat = Tattoo()
+        guard let user = PFUser.currentUser(),
+            let tatDescription = tattooDescriptionTextField.text,
+            let tattooPic = tattooToUpload.image else { return }
         
-        if let tatDescription = tattooDescriptionTextField.text,
-            tattooPic = tattooToUpload.image {
+        let newTat = Tattoo()
                 
-                
-                newTat.setObject(user!, forKey: "TattooArtist")
-                newTat.setObject(tatDescription, forKey: "TattooDescription")
-                
-                var pictureData = UIImagePNGRepresentation(tattooPic)!
-                while pictureData.length > 500000 {
-                    pictureData = UIImageJPEGRepresentation(tattooPic, 0.5)!
-                }
-                
-                let imageFile = PFFile(name: "image.png", data: pictureData)
-                
-                newTat.setObject(imageFile!, forKey: "TattooImage")
-                
-                newTat.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if success {
-                        print("saved tat")
-                    } else {
-                        print("Error: \(error)")
-                    }
-                })
-
+        newTat.tattooArtist = user
+        newTat.tattooDescription = tatDescription
+        
+        var pictureData = UIImagePNGRepresentation(tattooPic)!
+        while pictureData.length > 500000 {
+            pictureData = UIImageJPEGRepresentation(tattooPic, 0.5)!
         }
+        
+        if let imageFile = PFFile(data: pictureData) {
+            newTat.tattooImage = imageFile
+            imageFile.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if success {
+                    print("success")
+                }
+            })
+        }
+        
+        newTat.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if success {
+                print("saved tat")
+            } else {
+                print("Error: \(error)")
+            }
+        })
+
     }
-    
+
     @IBAction func cancelButtonPressed(sender: UIButton) {
         tattooToUpload.image = nil
     }
-    
+
     @IBAction func addImageButtonPressed(sender: UIBarButtonItem) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .PhotoLibrary
