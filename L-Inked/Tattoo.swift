@@ -11,7 +11,7 @@ import Parse
 
 class Tattoo: PFObject, PFSubclassing {
     
-    @NSManaged var tattooArtist: PFUser
+    @NSManaged var tattooArtist: LinkedUser
     @NSManaged var tattooDescription: String
     @NSManaged var tattooImage: PFFile
     

@@ -34,7 +34,7 @@ class EditProfileViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func saveProfileButtonPressed(sender: UIButton) {
-        let user =  PFUser.currentUser()
+        let user =  LinkedUser.currentUser()
         
         if let user = user,
             name = artistNameTextField.text,
@@ -82,7 +82,7 @@ class EditProfileViewController: UIViewController {
     
     @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
         
-        PFUser.logOut()
+        LinkedUser.logOut()
         print("logged out")
     }
     
@@ -100,8 +100,7 @@ class EditProfileViewController: UIViewController {
         aboutArtistTextView.layer.cornerRadius = 5.0
         aboutArtistTextView.layer.borderWidth = 1.0
         aboutArtistTextView.layer.borderColor = myGrey.CGColor
-//        aboutArtistTextView.attributedText = NSAttributedString(string: "Hey", attributes: [NSForegroundColorAttributeName: myGrey])
-//        
+       
     }
 
 }

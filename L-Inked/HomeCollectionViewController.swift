@@ -24,6 +24,9 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
+        
+        
+        
         navigationController?.setNavigationBarHidden(false, animated: false)
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
@@ -43,43 +46,15 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
 
             }
         
-        let currentUser = PFUser.currentUser()
+        let currentUser = LinkedUser.currentUser()
             if currentUser == nil  || currentUser!["isArtist"].boolValue == false  {
             navigationItem.leftBarButtonItem = nil
-            navigationItem.hidesBackButton = true
+//            navigationItem.hidesBackButton = true
         } else {
             print("Youre an artist! ")
             
         }
-        /////////////////////////////////////
-        /////////
-        ///// FETCH TATTOOS FOR SPECIFIC ARTIST
-        
-        
-        
-        
-//        let queryArtists = PFQuery(className:"Tattoo")
-//        queryArtists.whereKey("tattooArtist", equalTo:currentUser!)
-//        queryArtists.findObjectsInBackgroundWithBlock {
-//            (objects: [PFObject]?, error: NSError?) -> Void in
-//            
-//            if error == nil {
-//                // The find succeeded.
-//                print("Successfully retrieved \(objects!.count) tattoos.")
-//                // Do something with the found objects
-//                if let objects = objects {
-//                    for object in objects {
-//                        print(object.objectId)
-//                    }
-//                }
-//            } else {
-//                // Log details of the failure
-//                print("Error: \(error!) \(error!.userInfo)")
-//            }
-//        }
 
-        //////
-        /////////////////////////////////////////
     }
     
     //MARK: CollectionVC Delegate
@@ -91,11 +66,10 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> CustomCollectionViewCell {
-        
-        
-        
+
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
-        cell.tattooImageView.image = nil
+        
+       cell.tattooImageView.image = nil
         
        let individual = tattoosArray[indexPath.row]
         
@@ -120,13 +94,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
                 
                 destinationViewController.tattoo = tattoosArray[indexPath.row]
             }
-       
-   
-            
-            
-        }
-        
-
+         }
     }
     
     
@@ -150,3 +118,37 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     }
   
 }
+
+
+
+
+
+/////////////////////////////////////
+/////////
+///// FETCH TATTOOS FOR SPECIFIC ARTIST
+
+
+
+
+//        let queryArtists = PFQuery(className:"Tattoo")
+//        queryArtists.whereKey("tattooArtist", equalTo:currentUser!)
+//        queryArtists.findObjectsInBackgroundWithBlock {
+//            (objects: [PFObject]?, error: NSError?) -> Void in
+//
+//            if error == nil {
+//                // The find succeeded.
+//                print("Successfully retrieved \(objects!.count) tattoos.")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        print(object.objectId)
+//                    }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!.userInfo)")
+//            }
+//        }
+
+//////
+/////////////////////////////////////////

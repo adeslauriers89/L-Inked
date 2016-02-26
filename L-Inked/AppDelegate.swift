@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         Tattoo.registerSubclass()
-        
+        LinkedUser.registerSubclass()
         Parse.setApplicationId(APIKeys.parseAppID, clientKey: APIKeys.parseClientKey)
         
         

@@ -23,9 +23,6 @@ class TattooDetailViewController: UIViewController {
         
         print("HELLO ADAM\(tattoo)")
         
-        
-        
-        
         tattooDetailImageView.file = tattoo.tattooImage
         tattooDetailImageView.loadInBackground()
         

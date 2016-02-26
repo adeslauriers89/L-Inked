@@ -63,7 +63,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     }
 
     func login(username: String, password: String) {
-        PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
+        LinkedUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
             if  (user != nil) {
                 print("logged in")
                 self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
@@ -71,14 +71,29 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
                 print("ERROR")
             }
         })
+        
+        
+        
+//        PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
+//            if  (user != nil) {
+//                print("logged in")
+//                self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
+//            } else {
+//                print("ERROR")
+//            }
+//        })
     }
     
     func signup(username: String, password: String, email: String, isArtist: Bool) {
-        let newUser = PFUser()
+        
+        let newUser = LinkedUser()
         newUser.username = username
         newUser.password = password
         newUser.email = email
         newUser.setObject(isArtist, forKey: "isArtist")
+
+        
+        
         
         newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
             if success {
@@ -87,8 +102,26 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             } else {
                 print("Error")
             }
-        
+            
         }
+
+        
+        
+//        let newUser = PFUser()
+//        newUser.username = username
+//        newUser.password = password
+//        newUser.email = email
+//        newUser.setObject(isArtist, forKey: "isArtist")
+//        
+//        newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
+//            if success {
+//                print("Created new user")
+//                self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
+//            } else {
+//                print("Error")
+//            }
+//        
+//        }
     }
 
     func addConstraintsToSignup() {

@@ -24,21 +24,20 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func saveButtonPressed(sender: UIButton) {
-        
-        guard let user = PFUser.currentUser(),
+        guard let user = LinkedUser.currentUser(),
             let tatDescription = tattooDescriptionTextField.text,
             let tattooPic = tattooToUpload.image else { return }
         
         let newTat = Tattoo()
-                
+        
         newTat.tattooArtist = user
         newTat.tattooDescription = tatDescription
         
         var pictureData = UIImagePNGRepresentation(tattooPic)!
-        while pictureData.length > 500000 {
+        
+        while pictureData.length > 5000000 {
             pictureData = UIImageJPEGRepresentation(tattooPic, 0.5)!
         }
-        
         if let imageFile = PFFile(data: pictureData) {
             newTat.tattooImage = imageFile
             imageFile.saveInBackgroundWithBlock({ (success, error) -> Void in
@@ -47,7 +46,6 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
                 }
             })
         }
-        
         newTat.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success {
                 print("saved tat")
@@ -55,7 +53,6 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
                 print("Error: \(error)")
             }
         })
-
     }
 
     @IBAction func cancelButtonPressed(sender: UIButton) {
@@ -80,7 +77,6 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         tattooToUpload.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
-        
         
     }
 
