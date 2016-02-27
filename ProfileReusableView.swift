@@ -10,4 +10,9 @@ import UIKit
 
 class ProfileReusableView: UICollectionReusableView {
 
+    @IBOutlet weak var artistProfilePic: UIImageView!
+    @IBOutlet weak var artistNameLabel: UILabel!
+    @IBOutlet weak var aboutArtistLabel: UILabel!
+    @IBOutlet weak var shopAddressLabel: UILabel!
+    
 }

@@ -49,10 +49,21 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         newTat.saveInBackgroundWithBlock({ (success, error) -> Void in
             if success {
                 print("saved tat")
+                
+                user.tattoos.append(newTat)
+                user.saveInBackgroundWithBlock { (success, error) -> Void in
+                    if success {
+                        print("added tattoo to artists array")
+                    } else {
+                        print("error")
+                    }
+                }
             } else {
                 print("Error: \(error)")
             }
         })
+        
+
     }
 
     @IBAction func cancelButtonPressed(sender: UIButton) {
@@ -60,12 +71,26 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     }
 
     @IBAction func addImageButtonPressed(sender: UIBarButtonItem) {
+        
+        let cameraPickerController = UIImagePickerController()
+        cameraPickerController.sourceType = .Camera
+        cameraPickerController.delegate = self
+        presentViewController(cameraPickerController, animated: true, completion: nil)
+        
+
+    }
+    
+    @IBAction func takePhotoButtonPressed(sender: UIButton) {
+        
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .PhotoLibrary
         imagePickerController.delegate = self
         presentViewController(imagePickerController, animated: true, completion: nil)
 
+        
+        
     }
+    
     
     // MARK: UIImagePickerControllerDelegate
     
@@ -77,6 +102,12 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         tattooToUpload.image = selectedImage
         dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    //MARK: General Functions
+    
+    func addTattooToArray() {
         
     }
 

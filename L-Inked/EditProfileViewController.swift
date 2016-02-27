@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
     
@@ -44,10 +44,10 @@ class EditProfileViewController: UIViewController {
             profilePic = profilePicToUpload.image {
                 
                 // user.setObject(name, forKey: "Name")
-                user["Name"] = name
-                user.setObject(contactEmail, forKey: "ContactEmail")
-                user.setObject(address, forKey: "ShopAddress")
-                user.setObject(about, forKey: "AboutArtist")
+                user.name = name
+                user.contactEmail = contactEmail
+                user.shopAddress = address
+                user.aboutArtist = about
                 
                 
                 var pictureData: NSData = UIImagePNGRepresentation(profilePic)!
@@ -60,7 +60,7 @@ class EditProfileViewController: UIViewController {
                 
                 
                 
-                user.setObject(imageFile!, forKey: "ProfilePic")
+                user.profilePic = imageFile!
                 
                 
                 user.saveInBackgroundWithBlock({ (success, error) -> Void in
@@ -89,6 +89,13 @@ class EditProfileViewController: UIViewController {
     @IBAction func uploadPhotoButtonPressed(sender: UIButton) {
     }
     
+    @IBAction func profilePicButtonPressed(sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.delegate = self
+        presentViewController(imagePickerController, animated: true, completion: nil)
+    }
+    
     
     
     //MARK: General Methods
@@ -101,6 +108,19 @@ class EditProfileViewController: UIViewController {
         aboutArtistTextView.layer.borderWidth = 1.0
         aboutArtistTextView.layer.borderColor = myGrey.CGColor
        
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        profilePicToUpload.image = selectedImage
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
 
 }

@@ -17,6 +17,7 @@ class LinkedUser: PFUser {
     @NSManaged var shopAddress: String
     @NSManaged var profilePic: PFFile
     @NSManaged var contactEmail: String
+    
     @NSManaged var tattoos: [Tattoo]
     
     

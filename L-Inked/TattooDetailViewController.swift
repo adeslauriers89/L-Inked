@@ -15,20 +15,32 @@ class TattooDetailViewController: UIViewController {
     //MARK: Properties
     
     var tattoo = Tattoo()
+    var dvcTatsArray = [Tattoo]()
+    
     @IBOutlet weak var tattooDetailImageView: PFImageView!
     
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
-        
-        print("HELLO ADAM\(tattoo)")
-        
+    
         tattooDetailImageView.file = tattoo.tattooImage
         tattooDetailImageView.loadInBackground()
         
-        
-        
+
     }
     
+    //MARK: Segues
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "segueToArtistProfileCVC" {
+            
+            let artistFromDVC =  tattoo.tattooArtist
+            
+            let destinationViewController = segue.destinationViewController as! ArtistProfileCollectionViewController
+            
+            destinationViewController.artist = artistFromDVC
+            
+        }
+    }
 }
