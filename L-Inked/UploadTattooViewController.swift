@@ -24,6 +24,7 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func saveButtonPressed(sender: UIButton) {
+        
         guard let user = LinkedUser.currentUser(),
             let tatDescription = tattooDescriptionTextField.text,
             let tattooPic = tattooToUpload.image else { return }
@@ -50,7 +51,9 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
             if success {
                 print("saved tat")
                 
+                
                 user.tattoos.append(newTat)
+                
                 user.saveInBackgroundWithBlock { (success, error) -> Void in
                     if success {
                         print("added tattoo to artists array")

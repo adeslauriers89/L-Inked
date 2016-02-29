@@ -29,7 +29,6 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     }
 
     override func viewWillAppear(animated: Bool) {
-        
         let query = Tattoo.query()
         query!.whereKey("tattooArtist", equalTo:artist)
         query!.orderByDescending("createdAt")
@@ -39,17 +38,21 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
                 return
             }
             self.artistPortfolio = tattoos
+            
+            
 
             self.collectionView?.reloadData()
+            
+            
         }
-        
+
     }
     
     //MARK: CollectionViewController Delegate
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-//        print(artistPortfolio.count)
+        print(artistPortfolio.count)
         
         return artistPortfolio.count
         
@@ -97,23 +100,31 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         supplementaryView.artistNameLabel.text = artist.name
         
+        print("name \(artist.name)")
+        
         supplementaryView.aboutArtistLabel.text = artist.aboutArtist
 //        supplementaryView.aboutArtistLabel.sizeToFit()
 //        supplementaryView.aboutArtistLabel.lineBreakMode = .ByWordWrapping
-        
-        
-        
-  
+//        supplementaryView.aboutArtistLabel.translatesAutoresizingMaskIntoConstraints = false
+
+
         
         supplementaryView.shopAddressLabel.text = "Shop Address: \(artist.shopAddress)"
-//        supplementaryView.shopAddressLabel.sizeToFit()
-//        supplementaryView.aboutArtistLabel.lineBreakMode = .ByWordWrapping
+        //        supplementaryView.shopAddressLabel.sizeToFit()
+        //        supplementaryView.shopAddressLabel.lineBreakMode = .ByWordWrapping
+        //        supplementaryView.shopAddressLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
+            
             guard let data = data,
                 let image = UIImage(data: data) else {return}
-             supplementaryView.artistProfilePic.image = image
+            supplementaryView.artistProfilePic.image = image
+            supplementaryView.artistProfilePic.layer.cornerRadius = image.size.width/2
+            supplementaryView.artistProfilePic.clipsToBounds = true
+            
+            print(supplementaryView.artistProfilePic.image)
+            
         }
         return supplementaryView
     }

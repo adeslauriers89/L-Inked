@@ -20,6 +20,7 @@ class LinkedUser: PFUser {
     
     @NSManaged var tattoos: [Tattoo]
     
+    @NSManaged var shopGeopoint: PFGeoPoint
     
     
     override class func initialize() {

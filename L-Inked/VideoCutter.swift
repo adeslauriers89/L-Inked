@@ -6,4 +6,9 @@
 //  Copyright © 2016 Adam DesLauriers. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class VideoCutter: NSObject {
+    
+}
+

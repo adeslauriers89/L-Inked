@@ -12,7 +12,11 @@
 		A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B51C7E31EC00A837B7 /* VideoCutter.swift */; };
 		A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */; };
 		A60388BC1C7E9C2000A837B7 /* TattooDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388BB1C7E9C2000A837B7 /* TattooDetailViewController.swift */; };
+		A60DEC791C8245EE00CDBEA9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60DEC781C8245EE00CDBEA9 /* MapViewController.swift */; };
+		A60DEC7C1C824A0900CDBEA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A60DEC7A1C824A0900CDBEA9 /* Main.storyboard */; };
+		A60DEC7E1C82625300CDBEA9 /* ArtistAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60DEC7D1C82625300CDBEA9 /* ArtistAnnotation.swift */; };
 		A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */; };
+		A65307531C84CF7900B23172 /* ArtistAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65307521C84CF7900B23172 /* ArtistAnnotationView.swift */; };
 		A66F00341C7F6BE900512CFA /* LinkedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F00331C7F6BE900512CFA /* LinkedUser.swift */; };
 		A66F00361C7FB61800512CFA /* ProfileReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F00351C7FB61800512CFA /* ProfileReusableView.swift */; };
 		A66F00381C7FB8E100512CFA /* ArtistProfileCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F00371C7FB8E100512CFA /* ArtistProfileCollectionViewController.swift */; };
@@ -20,7 +24,6 @@
 		A66FE7641C7CF3F8004FE3F0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7631C7CF3F8004FE3F0 /* EditProfileViewController.swift */; };
 		A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */; };
 		A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */; };
-		A67D8D321C7BBBD500C34B95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D301C7BBBD500C34B95 /* Main.storyboard */; };
 		A67D8D341C7BBBD500C34B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D331C7BBBD500C34B95 /* Assets.xcassets */; };
 		A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A67D8D351C7BBBD500C34B95 /* LaunchScreen.storyboard */; };
 		A67D8D421C7BBBD500C34B95 /* L_InkedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D411C7BBBD500C34B95 /* L_InkedTests.swift */; };
@@ -51,7 +54,11 @@
 		A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A60388BA1C7E777F00A837B7 /* Linked-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Linked-Bridging-Header.h"; sourceTree = "<group>"; };
 		A60388BB1C7E9C2000A837B7 /* TattooDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooDetailViewController.swift; sourceTree = "<group>"; };
+		A60DEC781C8245EE00CDBEA9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A60DEC7B1C824A0900CDBEA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A60DEC7D1C82625300CDBEA9 /* ArtistAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistAnnotation.swift; sourceTree = "<group>"; };
 		A63E9CF51C7D3A5D00BABFF8 /* Tattoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tattoo.swift; sourceTree = "<group>"; };
+		A65307521C84CF7900B23172 /* ArtistAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistAnnotationView.swift; sourceTree = "<group>"; };
 		A66F00331C7F6BE900512CFA /* LinkedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedUser.swift; sourceTree = "<group>"; };
 		A66F00351C7FB61800512CFA /* ProfileReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileReusableView.swift; sourceTree = "<group>"; };
 		A66F00371C7FB8E100512CFA /* ArtistProfileCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistProfileCollectionViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +67,6 @@
 		A66FE7651C7CFED8004FE3F0 /* UploadTattooViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadTattooViewController.swift; sourceTree = "<group>"; };
 		A67D8D291C7BBBD500C34B95 /* L-Inked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L-Inked.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A67D8D2C1C7BBBD500C34B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A67D8D311C7BBBD500C34B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A67D8D331C7BBBD500C34B95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A67D8D361C7BBBD500C34B95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A67D8D381C7BBBD500C34B95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 		A67D8D4E1C7BC27500C34B95 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A60DEC781C8245EE00CDBEA9 /* MapViewController.swift */,
 				A67D8D4C1C7BC26B00C34B95 /* LoginSignupViewController.swift */,
 				A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */,
 				A66F00391C7FECDB00512CFA /* TattooVCs */,
@@ -200,7 +207,7 @@
 		A67D8D4F1C7BC28500C34B95 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A67D8D301C7BBBD500C34B95 /* Main.storyboard */,
+				A60DEC7A1C824A0900CDBEA9 /* Main.storyboard */,
 				A67D8D351C7BBBD500C34B95 /* LaunchScreen.storyboard */,
 			);
 			name = UI;
@@ -237,6 +244,8 @@
 				A67D8D571C7BC57100C34B95 /* LoginView.swift */,
 				A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */,
 				A66F00351C7FB61800512CFA /* ProfileReusableView.swift */,
+				A60DEC7D1C82625300CDBEA9 /* ArtistAnnotation.swift */,
+				A65307521C84CF7900B23172 /* ArtistAnnotationView.swift */,
 			);
 			name = Views;
 			path = ..;
@@ -329,10 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */,
+				A60DEC7C1C824A0900CDBEA9 /* Main.storyboard in Resources */,
 				A67D8D551C7BC35000C34B95 /* SignupView.xib in Resources */,
 				A67D8D341C7BBBD500C34B95 /* Assets.xcassets in Resources */,
 				A67D8D531C7BC33800C34B95 /* LoginView.xib in Resources */,
-				A67D8D321C7BBBD500C34B95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +409,7 @@
 			files = (
 				A67D8D4D1C7BC26B00C34B95 /* LoginSignupViewController.swift in Sources */,
 				A66F00381C7FB8E100512CFA /* ArtistProfileCollectionViewController.swift in Sources */,
+				A65307531C84CF7900B23172 /* ArtistAnnotationView.swift in Sources */,
 				A60388BC1C7E9C2000A837B7 /* TattooDetailViewController.swift in Sources */,
 				A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */,
 				A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */,
@@ -409,8 +419,10 @@
 				A66F00341C7F6BE900512CFA /* LinkedUser.swift in Sources */,
 				A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */,
 				A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */,
+				A60DEC7E1C82625300CDBEA9 /* ArtistAnnotation.swift in Sources */,
 				A6804B801C80FB2300F8E6B5 /* Constants.swift in Sources */,
 				A66FE7661C7CFED8004FE3F0 /* UploadTattooViewController.swift in Sources */,
+				A60DEC791C8245EE00CDBEA9 /* MapViewController.swift in Sources */,
 				A67D8D2D1C7BBBD500C34B95 /* AppDelegate.swift in Sources */,
 				A67D8D5A1C7BC58900C34B95 /* SignupView.swift in Sources */,
 				A66F00361C7FB61800512CFA /* ProfileReusableView.swift in Sources */,
@@ -437,10 +449,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A67D8D301C7BBBD500C34B95 /* Main.storyboard */ = {
+		A60DEC7A1C824A0900CDBEA9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A67D8D311C7BBBD500C34B95 /* Base */,
+				A60DEC7B1C824A0900CDBEA9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

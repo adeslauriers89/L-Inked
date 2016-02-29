@@ -14,5 +14,6 @@ class ProfileReusableView: UICollectionReusableView {
     @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var aboutArtistLabel: UILabel!
     @IBOutlet weak var shopAddressLabel: UILabel!
+
     
 }

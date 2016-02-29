@@ -31,6 +31,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     
     override func viewDidLoad() {
         
+
     }
     
     //MARK: Actions
@@ -156,6 +157,8 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         contentView.addConstraint(yCenterConstraint)
 
     }
+    
+
     
     
 }

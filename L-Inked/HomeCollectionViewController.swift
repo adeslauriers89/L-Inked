@@ -65,12 +65,8 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
         
-        
         let individual = tattoosArray[indexPath.row]
-        
-        
-        
-        if let objId = individual.objectId,
+            if let objId = individual.objectId,
             let cached = imageCache.objectForKey(objId) as? UIImage {
             
             cell.tattooImageView.image = cached
