@@ -10,8 +10,9 @@ import UIKit
 import Parse
 import FMMosaicLayout
 import MapKit
+import MessageUI
 
-class ArtistProfileCollectionViewController: UICollectionViewController, FMMosaicLayoutDelegate {
+class ArtistProfileCollectionViewController: UICollectionViewController, FMMosaicLayoutDelegate, MFMailComposeViewControllerDelegate {
     //MARK: Properties
 
     var artist = LinkedUser()
@@ -23,8 +24,6 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
-        
-        print(artist.aboutArtist)
 
     }
 
@@ -38,12 +37,8 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
                 return
             }
             self.artistPortfolio = tattoos
-            
-            
-
             self.collectionView?.reloadData()
-            
-            
+    
         }
 
     }
@@ -100,19 +95,14 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         supplementaryView.artistNameLabel.text = artist.name
         
-        print("name \(artist.name)")
+        supplementaryView.artistInfoTextView.text = "\(artist.aboutArtist)\r\n" + "\r\n" + "Shop Address: \(artist.shopAddress)"
         
-        supplementaryView.aboutArtistLabel.text = artist.aboutArtist
-//        supplementaryView.aboutArtistLabel.sizeToFit()
-//        supplementaryView.aboutArtistLabel.lineBreakMode = .ByWordWrapping
-//        supplementaryView.aboutArtistLabel.translatesAutoresizingMaskIntoConstraints = false
-
-
+        //supplementaryView.aboutArtistLabel.text = artist.aboutArtist
         
-        supplementaryView.shopAddressLabel.text = "Shop Address: \(artist.shopAddress)"
-        //        supplementaryView.shopAddressLabel.sizeToFit()
-        //        supplementaryView.shopAddressLabel.lineBreakMode = .ByWordWrapping
-        //        supplementaryView.shopAddressLabel.translatesAutoresizingMaskIntoConstraints = false
+       // supplementaryView.shopAddressLabel.text = "Shop Address: \(artist.shopAddress)"
+//                supplementaryView.shopAddressLabel.sizeToFit()
+//                supplementaryView.shopAddressLabel.lineBreakMode = .ByWordWrapping
+//                supplementaryView.shopAddressLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
@@ -120,10 +110,8 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             guard let data = data,
                 let image = UIImage(data: data) else {return}
             supplementaryView.artistProfilePic.image = image
-            supplementaryView.artistProfilePic.layer.cornerRadius = image.size.width/2
+            supplementaryView.artistProfilePic.layer.cornerRadius = supplementaryView.artistProfilePic.frame.size.width/2
             supplementaryView.artistProfilePic.clipsToBounds = true
-            
-            print(supplementaryView.artistProfilePic.image)
             
         }
         return supplementaryView
@@ -138,15 +126,54 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         return false
     }
+
     
     //MARK: General functions
     
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        
+        return mailComposerVC
+    }
+
+    
+    //MARK: MFMailComposerViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved.rawValue:
+            print("Mail saved")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail sent")
+        case MFMailComposeResultFailed.rawValue:
+            print("Mail sent failure: \(error!.localizedDescription)")
+        default:
+            break
+        }
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    //MARK: Actions
+    
+    @IBAction func messageButtonPressed(sender: UIButton) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        }
+        
+    }
 
 }
 
 
-    
-
-//struct MosiacConstants {
-//    static let insets = UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
-//}

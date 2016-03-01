@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import AVFoundation
+import AVKit
 
 
 class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupViewDelegate {
@@ -20,6 +22,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     
     var loginViewScreen: LoginView?
     var signupViewScreen: SignupView?
+    var player: AVPlayer?
     
     // MARK: View life cycle
     
@@ -30,9 +33,42 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     }
     
     override func viewDidLoad() {
+        ///////////////////
+        super.viewDidLoad()
+        
+        // Load the video from the app bundle.
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("sample", withExtension: ".mp4")!
+        
+        player = AVPlayer(URL: videoURL)
+        player?.actionAtItemEnd = .None
+        player?.muted = true
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
+       // playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.zPosition = -1
+        
+        playerLayer.frame = view.frame
+        
+        
+        contentView.layer.addSublayer(playerLayer)
+       // view.layer.addSublayer(playerLayer)
+        
+        player?.play()
+        
+        //loop video
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "loopVideo",
+            name: AVPlayerItemDidPlayToEndTimeNotification,
+            object: nil)
+    
+        
         
 
+        //////
+
     }
+
     
     //MARK: Actions
 
@@ -74,15 +110,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         })
         
         
-        
-//        PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
-//            if  (user != nil) {
-//                print("logged in")
-//                self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
-//            } else {
-//                print("ERROR")
-//            }
-//        })
+
     }
     
     func signup(username: String, password: String, email: String, isArtist: Bool) {
@@ -106,23 +134,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             
         }
 
-        
-        
-//        let newUser = PFUser()
-//        newUser.username = username
-//        newUser.password = password
-//        newUser.email = email
-//        newUser.setObject(isArtist, forKey: "isArtist")
-//        
-//        newUser.signUpInBackgroundWithBlock { (success, error) -> Void in
-//            if success {
-//                print("Created new user")
-//                self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
-//            } else {
-//                print("Error")
-//            }
-//        
-//        }
     }
 
     func addConstraintsToSignup() {
@@ -158,7 +169,11 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
 
     }
     
-
+   //////
+    func loopVideo() {
+        player?.seekToTime(kCMTimeZero)
+        player?.play()
+    }
     
     
 }

@@ -30,6 +30,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         
     configureTextView()
+    configureImageView()
     
     fillTextFieldsWithData()
 
@@ -53,7 +54,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 user.contactEmail = contactEmail
                 user.shopAddress = address
                 user.aboutArtist = about
-                
+    
                 print(user.shopAddress)
                 
               
@@ -110,11 +111,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
-        
-        LinkedUser.logOut()
-        print("logged out")
-    }
+//    @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
+//        
+//        LinkedUser.logOut()
+//        print("logged out")
+//    }
     
     @IBAction func uploadPhotoButtonPressed(sender: UIButton) {
     }
@@ -143,7 +144,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //        if aboutArtistTextView.text == nil {
 //            
 //        }
-       
+    }
+    
+    func configureImageView() {
+        
+        profilePicToUpload.layer.cornerRadius = profilePicToUpload.frame.size.width/2
+        profilePicToUpload.clipsToBounds = true
     }
     
     func fillTextFieldsWithData() {

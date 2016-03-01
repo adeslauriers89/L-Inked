@@ -100,9 +100,18 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
                 destinationViewController.tattoo = tattoosArray[indexPath.row]
                 destinationViewController.dvcTatsArray = tattoosArray
             }
-         }
+        } else if segue.identifier == "segueToMyProfile" {
+            let currentUser = LinkedUser.currentUser()
+            let artistForProfile = currentUser
+            
+            let destinationViewController = segue.destinationViewController as! ArtistProfileCollectionViewController
+            
+            destinationViewController.artist = artistForProfile!
+            
+        }
     }
-    
+
+
     
     //MARK: MosaicLayout Delegate
     
@@ -122,4 +131,11 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, mosaicCellSizeForItemAtIndexPath indexPath: NSIndexPath! ) -> FMMosaicCellSize {
         return indexPath.item % 7 == 0 ? FMMosaicCellSize.Big : FMMosaicCellSize.Small
     }
+    
+    @IBAction func logoutToMainViewController(segue:UIStoryboardSegue) {
+        
+        LinkedUser.logOut()
+        print("logged out")
+    }
+    
 }

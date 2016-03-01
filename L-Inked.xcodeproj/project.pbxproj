@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
+		A601B7EC1C8546CA00895A48 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A601B7EB1C85468900895A48 /* sample.mp4 */; };
 		A60388B31C7E2FEA00A837B7 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */; };
 		A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B51C7E31EC00A837B7 /* VideoCutter.swift */; };
 		A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
+		A601B7EB1C85468900895A48 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
 		A60388B51C7E31EC00A837B7 /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
 		A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		A67D8D2B1C7BBBD500C34B95 /* L-Inked */ = {
 			isa = PBXGroup;
 			children = (
+				A601B7EB1C85468900895A48 /* sample.mp4 */,
 				A67D8D561C7BC35900C34B95 /* Views */,
 				A67D8D501C7BC28B00C34B95 /* Model */,
 				A67D8D4E1C7BC27500C34B95 /* Controllers */,
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A601B7EC1C8546CA00895A48 /* sample.mp4 in Resources */,
 				A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */,
 				A60DEC7C1C824A0900CDBEA9 /* Main.storyboard in Resources */,
 				A67D8D551C7BC35000C34B95 /* SignupView.xib in Resources */,
