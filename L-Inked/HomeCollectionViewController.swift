@@ -15,8 +15,12 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     
     //MARK: Properties
     
+    let locationManager = MyLocationManager()
+    
+    @IBOutlet weak var orderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var profileButton: UIBarButtonItem!
     var tattoosArray = [Tattoo]()
+    //var tattoosByLocation = [Tattoo]()
     
     let imageCache = NSCache()
   
@@ -24,24 +28,18 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     
     override func viewDidLoad() {
         
+        locationManager.askForPermission()
+        
         navigationController?.setNavigationBarHidden(false, animated: false)
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
     }
     
     override func viewWillAppear(animated: Bool) {
-
-        let query = Tattoo.query()
-        query?.includeKey("tattooArtist")
-        query?.orderByDescending("createdAt")
-        query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            
-            guard let tattoos = objects as? [Tattoo] else {
-                return
-            }
-            self.tattoosArray = tattoos
-            self.collectionView?.reloadData()
-        }
+        super.viewWillAppear(animated)
+      
+        getData()
+        
         
         
         let currentUser = LinkedUser.currentUser()
@@ -98,7 +96,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             if let cell = sender as? CustomCollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) {
                 
                 destinationViewController.tattoo = tattoosArray[indexPath.row]
-                destinationViewController.dvcTatsArray = tattoosArray
+             //   destinationViewController.dvcTatsArray = tattoosArray
             }
         } else if segue.identifier == "segueToMyProfile" {
             let currentUser = LinkedUser.currentUser()
@@ -108,10 +106,16 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             
             destinationViewController.artist = artistForProfile!
             
+        } else if segue.identifier == "showMapSegue" {
+            let currentLocation = locationManager.locationManager.location
+            
+            let zoomLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake((currentLocation?.coordinate.latitude)!, (currentLocation?.coordinate.longitude)!)
+            
+            let destinationViewController = segue.destinationViewController as! MapViewController
+            
+            destinationViewController.zoomLocation = zoomLocation
         }
     }
-
-
     
     //MARK: MosaicLayout Delegate
     
@@ -132,10 +136,103 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
         return indexPath.item % 7 == 0 ? FMMosaicCellSize.Big : FMMosaicCellSize.Small
     }
     
+    //MARK: Actions
+    
     @IBAction func logoutToMainViewController(segue:UIStoryboardSegue) {
         
         LinkedUser.logOut()
         print("logged out")
+    }
+    
+    
+    @IBAction func orderControlSelected(sender: UISegmentedControl) {
+        getData()
+        
+    }
+    
+    //MARK: General Functions
+    
+    
+    func getData() {
+        if self.orderSegmentedControl.selectedSegmentIndex == 1 {
+            getArtistTattoos()
+        } else {
+            getTattoos()
+        }
+    
+    }
+    
+    
+    func getArtistTattoos() {
+        let query = LinkedUser.query()!
+        query.includeKey("tattoos")
+        
+        if let location = locationManager.locationManager.location {
+            if self.orderSegmentedControl.selectedSegmentIndex == 1 {
+                
+                let geopoint = PFGeoPoint(latitude: (location.coordinate.latitude), longitude: (location.coordinate.longitude))
+                
+
+                query.whereKey("shopGeopoint", nearGeoPoint: geopoint, withinKilometers: 100)
+                
+            }
+        } else {
+            // show a dialog bugging them to turn on location services
+            
+            return
+        }
+        
+        
+        let innerQuery = Tattoo.query()!
+        
+        innerQuery.whereKey("tattooArtist", matchesQuery: query)
+        innerQuery.includeKey("tattooArtist")
+        
+        innerQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            guard let tats = objects as? [Tattoo] else {
+                return
+            }
+            
+            self.tattoosArray = tats
+            self.collectionView?.reloadData()
+            
+        }
+    }
+    
+    
+    func getTattoos() {
+        
+        
+        let query = Tattoo.query()
+        query?.includeKey("tattooArtist")
+        query?.orderByDescending("createdAt")
+        
+        if let location = locationManager.locationManager.location {
+            if self.orderSegmentedControl.selectedSegmentIndex == 1 {
+                
+                let geopoint = PFGeoPoint(latitude: (location.coordinate.latitude), longitude: (location.coordinate.longitude))
+                print("near me selected")
+                
+
+                query?.whereKey("tattooArtist.shopGeopoint", nearGeoPoint: geopoint, withinKilometers: 100)
+            
+            }
+        } else {
+            // show a dialog bugging them to turn on location services
+            
+            return
+        }
+        
+        query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            guard let tattoos = objects as? [Tattoo] else {
+                return
+            }
+            self.tattoosArray = tattoos
+            self.collectionView?.reloadData()
+            
+        }
     }
     
 }

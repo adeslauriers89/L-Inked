@@ -97,13 +97,6 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         supplementaryView.artistInfoTextView.text = "\(artist.aboutArtist)\r\n" + "\r\n" + "Shop Address: \(artist.shopAddress)"
         
-        //supplementaryView.aboutArtistLabel.text = artist.aboutArtist
-        
-       // supplementaryView.shopAddressLabel.text = "Shop Address: \(artist.shopAddress)"
-//                supplementaryView.shopAddressLabel.sizeToFit()
-//                supplementaryView.shopAddressLabel.lineBreakMode = .ByWordWrapping
-//                supplementaryView.shopAddressLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
             
@@ -119,7 +112,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
 
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return view.frame.size.height*0.75
+        return view.frame.size.height*0.70
     }
     
     func headerShouldOverlayContentInCollectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!) -> Bool {
@@ -172,6 +165,28 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         }
         
+    }
+    
+    //MARK: Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromProfileToDVCSegue" {
+            let destinationViewController = segue.destinationViewController as! TattooDetailViewController
+            
+            if let cell = sender as? CustomCollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) {
+                
+                destinationViewController.tattoo = artistPortfolio[indexPath.row]
+                
+            }
+        }
+        else if segue.identifier == "showMapFromArtist" {
+            
+            let zoomLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(artist.shopGeopoint.latitude, artist.shopGeopoint.longitude)
+            
+            let destinationViewController = segue.destinationViewController as! MapViewController
+            
+            destinationViewController.zoomLocation = zoomLocation
+        }
     }
 
 }

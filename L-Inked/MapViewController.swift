@@ -11,16 +11,37 @@ import MapKit
 import UIKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+
+
+class MyLocationManager: NSObject, CLLocationManagerDelegate {
+    var locationManager = CLLocationManager()
+    
+    
+    func askForPermission() {
+        if (locationManager.respondsToSelector("requestWhenInUseAuthorization")) {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+
+    }
+    
+}
+
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     //MARK: Properties
     
-  //  var artistsArray = [LinkedUser]()
+    let locationManager = MyLocationManager()
     var shopLocations = [String]()
-    var locationManager = CLLocationManager()
     let zoomArea = 5000
     var geoCoder = CLGeocoder()
+    var zoomLocation = CLLocationCoordinate2D()
     @IBOutlet weak var mapView: MKMapView!
     
     //MARK: ViewController Life Cycle
@@ -32,16 +53,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     override func viewDidLoad() {
-        if (locationManager.respondsToSelector("requestWhenInUseAuthorization")) {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        if (CLLocationManager.locationServicesEnabled()) {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-        
+        locationManager.askForPermission()
     }
     
     //MARK: General Methods
@@ -51,8 +63,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let currentUser = LinkedUser.currentUser()
         
         if currentUser != nil {
-            let currentLocation = locationManager.location
-            let zoomLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake((currentLocation?.coordinate.latitude)!, (currentLocation?.coordinate.longitude)!)
+         //   let currentLocation = locationManager.locationManager.location
+//            let zoomLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake((currentLocation?.coordinate.latitude)!, (currentLocation?.coordinate.longitude)!)
             let adjustedRegion: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, CLLocationDistance(zoomArea), CLLocationDistance(zoomArea))
             mapView.setRegion(adjustedRegion, animated: true)
             mapView.showsUserLocation = true
@@ -118,6 +130,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             annotationView!.pinTintColor = UIColor.blueColor()
             let detailsBtn =  UIButton(type: .DetailDisclosure)
             annotationView?.rightCalloutAccessoryView = detailsBtn
+            
+            let directionsBtn = UIButton(type: .ContactAdd)
+            annotationView?.leftCalloutAccessoryView = directionsBtn
 
             
         }
@@ -135,8 +150,60 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.performSegueWithIdentifier("showProfileFromMap", sender: selectedArtist)
             }
             
+        } else if control == view.leftCalloutAccessoryView {
+            mapView.removeOverlays(mapView.overlays)
+            
+          
+            if let annoatation = view.annotation {
+                getDirections(annoatation)
+            }
         }
     }
+    //////////////////////////
+    
+    func getDirections(annotation: MKAnnotation) {
+        
+        let placemark = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        
+        let request = MKDirectionsRequest()
+        request.source = (MKMapItem.mapItemForCurrentLocation())
+        request.destination = mapItem
+        request.requestsAlternateRoutes = false
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculateDirectionsWithCompletionHandler { (response, error) -> Void in
+            if error !=  nil {
+                print("Error getting directions")
+            } else {
+                self.showRoute(response!)
+            }
+            
+        }
+    }
+    
+    func showRoute(response: MKDirectionsResponse) {
+        
+        for route in response.routes {
+            mapView.addOverlay(route.polyline,
+                level: MKOverlayLevel.AboveRoads)
+            
+            for step in route.steps {
+                print(step.instructions)
+            }
+        }
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            
+            renderer.strokeColor = UIColor.blueColor()
+            renderer.lineWidth = 5.0
+            return renderer
+    }
+    
+    /////////
     
     //MARK: Segue
     

@@ -146,11 +146,23 @@
                     </collectionView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lcv-HR-LQb">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="nFF-XM-UPp">
                             <connections>
                                 <segue destination="RlJ-q4-tKh" kind="show" identifier="segueToMyProfile" id="HQB-8c-rDJ"/>
                             </connections>
                         </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="SmR-N9-yGT">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Newest"/>
+                                <segment title="Near Me"/>
+                            </segments>
+                            <connections>
+                                <action selector="orderControlSelected:" destination="5dF-fI-r7C" eventType="valueChanged" id="UQa-ET-Ege"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="a4O-ly-PFS">
                             <connections>
                                 <segue destination="RQV-2e-8vv" kind="show" identifier="showMapSegue" id="H7q-z0-4Wg"/>
@@ -159,6 +171,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="orderSegmentedControl" destination="SmR-N9-yGT" id="9Kv-Aq-19F"/>
                         <outlet property="profileButton" destination="nFF-XM-UPp" id="eYX-Bg-60V"/>
                     </connections>
                 </collectionViewController>
@@ -184,7 +197,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzR-4s-Jl1">
                                 <rect key="frame" x="76" y="491" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Artist"/>
                                 <connections>
                                     <segue destination="RlJ-q4-tKh" kind="show" identifier="segueToArtistProfileCVC" id="2qp-1F-0XZ"/>
                                 </connections>
@@ -210,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuM-Jk-Wte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762.5" y="336.5"/>
+            <point key="canvasLocation" x="2825.5" y="336.5"/>
         </scene>
         <!--Artist Profile Collection View Controller-->
         <scene sceneID="kEa-Xe-btn">
@@ -249,6 +262,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="tattooImageView" destination="MKs-fn-Sl3" id="K4M-TK-0Qa"/>
+                                    <segue destination="JdY-83-LsZ" kind="show" identifier="fromProfileToDVCSegue" id="TYz-25-nL3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -270,36 +284,6 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Address:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6I-vA-Gyz">
-                                    <rect key="frame" x="16" y="237" width="351" height="16"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="340" id="Bi1-3i-3rM"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="zG8-ba-dDH"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <nil key="highlightedColor"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="Bi1-3i-3rM"/>
-                                            <exclude reference="zG8-ba-dDH"/>
-                                        </mask>
-                                    </variation>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-9b-MaH">
-                                    <rect key="frame" x="16" y="201" width="351" height="16"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="340" id="9xh-fN-yYW"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="OXZ-Pg-MWI"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <nil key="highlightedColor"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="9xh-fN-yYW"/>
-                                            <exclude reference="OXZ-Pg-MWI"/>
-                                        </mask>
-                                    </variation>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOo-TV-xf2">
                                     <rect key="frame" x="156" y="418" width="62" height="30"/>
                                     <state key="normal" title="Message"/>
@@ -307,11 +291,11 @@
                                         <action selector="messageButtonPressed:" destination="RlJ-q4-tKh" eventType="touchUpInside" id="bM7-pB-fa0"/>
                                     </connections>
                                 </button>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p05-aX-s1l">
-                                    <rect key="frame" x="12" y="331" width="351" height="79"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p05-aX-s1l">
+                                    <rect key="frame" x="16" y="199" width="343" height="90"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="79" id="CMU-j3-W46"/>
+                                        <constraint firstAttribute="height" constant="90" id="CMU-j3-W46"/>
                                         <constraint firstAttribute="width" constant="351" id="yAA-fb-GhJ"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -322,40 +306,44 @@
                                         </mask>
                                     </variation>
                                 </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAf-BV-L03">
+                                    <rect key="frame" x="71" y="418" width="30" height="30"/>
+                                    <state key="normal" title="Map"/>
+                                    <connections>
+                                        <segue destination="RQV-2e-8vv" kind="show" identifier="showMapFromArtist" id="MYl-IR-878"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="nOo-TV-xf2" firstAttribute="top" secondItem="p05-aX-s1l" secondAttribute="bottom" constant="8" id="1Ax-Se-euH"/>
-                                <constraint firstItem="H9L-9b-MaH" firstAttribute="top" secondItem="69R-rh-71B" secondAttribute="bottom" constant="10" id="347-rV-mut"/>
                                 <constraint firstItem="p05-aX-s1l" firstAttribute="centerX" secondItem="bpW-kU-iRh" secondAttribute="centerX" id="5MZ-js-2u5"/>
                                 <constraint firstItem="p05-aX-s1l" firstAttribute="leading" secondItem="bpW-kU-iRh" secondAttribute="leadingMargin" constant="4" id="BDa-7W-9yu"/>
-                                <constraint firstItem="W6I-vA-Gyz" firstAttribute="top" secondItem="H9L-9b-MaH" secondAttribute="bottom" constant="20" id="BFd-s8-wU4"/>
                                 <constraint firstItem="nOo-TV-xf2" firstAttribute="centerX" secondItem="bpW-kU-iRh" secondAttribute="centerX" id="Cvk-Bb-zEL"/>
-                                <constraint firstItem="W6I-vA-Gyz" firstAttribute="centerY" secondItem="bpW-kU-iRh" secondAttribute="centerY" constant="13" id="DsV-VS-h97"/>
-                                <constraint firstItem="W6I-vA-Gyz" firstAttribute="leading" secondItem="H9L-9b-MaH" secondAttribute="leading" id="ED7-7H-oFj"/>
-                                <constraint firstAttribute="trailing" secondItem="H9L-9b-MaH" secondAttribute="trailing" constant="8" id="JPu-6d-qHu"/>
+                                <constraint firstItem="dAf-BV-L03" firstAttribute="top" secondItem="nOo-TV-xf2" secondAttribute="top" id="JWR-SK-KQ9"/>
+                                <constraint firstItem="dAf-BV-L03" firstAttribute="leading" secondItem="bpW-kU-iRh" secondAttribute="leadingMargin" constant="63" id="ONl-Q4-YdF"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="nOo-TV-xf2" secondAttribute="bottom" constant="8" id="P6B-kY-qrQ"/>
-                                <constraint firstItem="W6I-vA-Gyz" firstAttribute="top" secondItem="H9L-9b-MaH" secondAttribute="bottom" constant="20" id="Sxb-Il-fDK"/>
+                                <constraint firstItem="p05-aX-s1l" firstAttribute="top" secondItem="69R-rh-71B" secondAttribute="bottom" constant="8" id="RAc-Za-w96"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="dAf-BV-L03" secondAttribute="bottom" constant="8" id="Rl6-w2-8hI"/>
                                 <constraint firstItem="VX0-RY-ABd" firstAttribute="leading" secondItem="bpW-kU-iRh" secondAttribute="leadingMargin" constant="8" id="TfB-c1-NbI"/>
                                 <constraint firstItem="69R-rh-71B" firstAttribute="top" secondItem="VX0-RY-ABd" secondAttribute="bottom" constant="12" id="VJo-kA-wTf"/>
                                 <constraint firstItem="69R-rh-71B" firstAttribute="leading" secondItem="VX0-RY-ABd" secondAttribute="leading" id="XJX-5E-zOw"/>
+                                <constraint firstItem="p05-aX-s1l" firstAttribute="leading" secondItem="69R-rh-71B" secondAttribute="leading" id="dil-mh-Hdt"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="p05-aX-s1l" secondAttribute="trailing" constant="4" id="hnV-ag-Rtu"/>
                                 <constraint firstItem="VX0-RY-ABd" firstAttribute="top" secondItem="bpW-kU-iRh" secondAttribute="topMargin" constant="8" id="j6R-WA-fAH"/>
-                                <constraint firstItem="H9L-9b-MaH" firstAttribute="leading" secondItem="69R-rh-71B" secondAttribute="leading" id="pGi-dS-Vst"/>
-                                <constraint firstItem="W6I-vA-Gyz" firstAttribute="trailing" secondItem="bpW-kU-iRh" secondAttribute="trailingMargin" id="xsc-HV-8rU"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="p05-aX-s1l" secondAttribute="trailing" constant="8" id="xlf-Sq-urX"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="DsV-VS-h97"/>
-                                    <exclude reference="Sxb-Il-fDK"/>
+                                    <exclude reference="BDa-7W-9yu"/>
+                                    <exclude reference="hnV-ag-Rtu"/>
+                                    <exclude reference="1Ax-Se-euH"/>
                                 </mask>
                             </variation>
                             <connections>
-                                <outlet property="aboutArtistLabel" destination="H9L-9b-MaH" id="QtW-lg-81p"/>
                                 <outlet property="artistInfoTextView" destination="p05-aX-s1l" id="XMs-yn-KmV"/>
                                 <outlet property="artistNameLabel" destination="69R-rh-71B" id="chi-Xn-jQv"/>
                                 <outlet property="artistProfilePic" destination="VX0-RY-ABd" id="FAZ-0b-983"/>
-                                <outlet property="shopAddressLabel" destination="W6I-vA-Gyz" id="veD-Zh-mWL"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -374,7 +362,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vG5-oH-PbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307.5" y="-440.5"/>
+            <point key="canvasLocation" x="2229.5" y="-642.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="azB-0O-bug">
@@ -636,6 +624,8 @@
         <image name="tattoo_machine" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dDh-tb-HGw"/>
+        <segue reference="vrE-gy-vM0"/>
+        <segue reference="2qp-1F-0XZ"/>
+        <segue reference="MYl-IR-878"/>
     </inferredMetricsTieBreakers>
 </document>

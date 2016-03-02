@@ -29,10 +29,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         
-    configureTextView()
-    configureImageView()
-    
-    fillTextFieldsWithData()
+        configureTextView()
+        configureImageView()
+        
+        fillTextFieldsWithData()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
 
     }
     
@@ -144,6 +147,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 //        if aboutArtistTextView.text == nil {
 //            
 //        }
+    }
+    
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
     }
     
     func configureImageView() {

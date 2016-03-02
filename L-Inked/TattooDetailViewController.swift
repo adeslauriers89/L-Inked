@@ -42,5 +42,6 @@ class TattooDetailViewController: UIViewController {
             destinationViewController.artist = artistFromDVC
             
         }
+
     }
 }

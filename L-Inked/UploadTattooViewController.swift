@@ -20,6 +20,11 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     //MARK: View Controller life cycle
     
+    override func viewDidLoad() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
     //MARK: Actions
     
     
@@ -110,8 +115,13 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     //MARK: General Functions
     
-    func addTattooToArray() {
+//    func addTattooToArray() {
+//        
+//    }
+    
+    func dismissKeyboard() {
         
+        view.endEditing(true)
     }
 
 }

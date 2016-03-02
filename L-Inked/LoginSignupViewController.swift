@@ -12,7 +12,7 @@ import AVFoundation
 import AVKit
 
 
-class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupViewDelegate {
+class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupViewDelegate, UITextFieldDelegate {
     
     // MARK: Properties
     
@@ -36,6 +36,10 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         ///////////////////
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        
         // Load the video from the app bundle.
         let videoURL: NSURL = NSBundle.mainBundle().URLForResource("sample", withExtension: ".mp4")!
         
@@ -52,7 +56,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         
         contentView.layer.addSublayer(playerLayer)
-       // view.layer.addSublayer(playerLayer)
+       
         
         player?.play()
         
@@ -61,11 +65,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             selector: "loopVideo",
             name: AVPlayerItemDidPlayToEndTimeNotification,
             object: nil)
-    
-        
-        
-
-        //////
+          //////
 
     }
 
@@ -98,6 +98,10 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             signupViewScreen.delegate = self
         }
     }
+    
+
+    
+    //MARK: Login signup methods
 
     func login(username: String, password: String) {
         LinkedUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
@@ -135,6 +139,8 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         }
 
     }
+    
+    //MARK: ViewConstraints
 
     func addConstraintsToSignup() {
         signupViewScreen!.translatesAutoresizingMaskIntoConstraints = false
@@ -169,11 +175,16 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
 
     }
     
-   //////
+    //MARK: General methods
+   
     func loopVideo() {
         player?.seekToTime(kCMTimeZero)
         player?.play()
     }
     
+    func dismissKeyboard() {
+        
+        view.endEditing(true)
+    }
     
 }
