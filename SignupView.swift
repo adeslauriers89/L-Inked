@@ -23,8 +23,11 @@ class SignupView: UIView {
     @IBOutlet weak var paswordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var isArtistSwitch: UISwitch!
+    @IBOutlet weak var signupSubmitButton: UIButton!
     
     weak var delegate: SignupViewDelegate?
+    
+    
     
     //MARK: Actions
    

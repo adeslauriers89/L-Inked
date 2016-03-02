@@ -24,10 +24,17 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
+        
+        let currentUser = LinkedUser.currentUser()
+        if currentUser != artist {
+            navigationItem.rightBarButtonItem = nil
+        }
 
     }
 
     override func viewWillAppear(animated: Bool) {
+        
+        
         let query = Tattoo.query()
         query!.whereKey("tattooArtist", equalTo:artist)
         query!.orderByDescending("createdAt")
@@ -159,12 +166,15 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     //MARK: Actions
     
     @IBAction func messageButtonPressed(sender: UIButton) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        
-        if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        if let currentUser = LinkedUser.currentUser() {
+            let mailComposeViewController = configuredMailComposeViewController()
+            
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            }
+        } else {
+            
         }
-        
     }
     
     //MARK: Segue

@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-07-CV9">
-                    <rect key="frame" x="47.5" y="20" width="150" height="30"/>
+                    <rect key="frame" x="47" y="20" width="150" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="qvB-zt-STO"/>
                     </constraints>
@@ -36,8 +36,11 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUq-1u-RpR">
-                    <rect key="frame" x="98" y="207.5" width="49" height="30"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="94.5" y="207.5" width="56" height="30"/>
+                    <color key="backgroundColor" red="0.12941176470588234" green="0.13333333333333333" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="0FJ-wl-1v1"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Submit"/>
                     <connections>
@@ -50,7 +53,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a tattoo artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97m-AX-GKX">
                     <rect key="frame" x="75" y="167" width="141" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -76,6 +79,7 @@
                 <outlet property="emailTextField" destination="o0s-6Z-lSr" id="Af7-h9-E1p"/>
                 <outlet property="isArtistSwitch" destination="XNr-UC-2Mb" id="clh-sM-VKM"/>
                 <outlet property="paswordTextField" destination="dQL-6o-fd2" id="mrI-Rk-gvv"/>
+                <outlet property="signupSubmitButton" destination="LUq-1u-RpR" id="Ynd-Or-fX2"/>
                 <outlet property="usernameTextField" destination="uHU-07-CV9" id="N5m-HI-iw0"/>
             </connections>
             <point key="canvasLocation" x="23" y="70"/>

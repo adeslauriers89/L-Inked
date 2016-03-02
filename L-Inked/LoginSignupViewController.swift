@@ -27,7 +27,8 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     // MARK: View life cycle
     
     override func viewWillAppear(animated: Bool) {
-     
+        
+        signupViewScreen?.signupSubmitButton.layer.cornerRadius = 5
         navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
@@ -36,20 +37,25 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         ///////////////////
         super.viewDidLoad()
         
+        loginButton.layer.cornerRadius = 5
+        signupButton.layer.cornerRadius = 5
+        
+        
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         
-        // Load the video from the app bundle.
-        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("sample", withExtension: ".mp4")!
+  
+        let videoURL: NSURL = NSBundle.mainBundle().URLForResource("TattooClips", withExtension: ".mp4")!
         
         player = AVPlayer(URL: videoURL)
         player?.actionAtItemEnd = .None
         player?.muted = true
         
         let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
-       // playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         playerLayer.zPosition = -1
         
         playerLayer.frame = view.frame
@@ -60,7 +66,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         player?.play()
         
-        //loop video
+   
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "loopVideo",
             name: AVPlayerItemDidPlayToEndTimeNotification,
@@ -68,6 +74,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
           //////
 
     }
+
 
     
     //MARK: Actions
@@ -82,6 +89,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             contentView.addSubview(loginViewScreen)
             addConstraintsToLogin()
             loginViewScreen.delegate = self
+            loginViewScreen.loginSubmitButton.layer.cornerRadius = 5
         }
     }
     
@@ -96,6 +104,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             contentView.addSubview(signupViewScreen)
             addConstraintsToSignup()
             signupViewScreen.delegate = self
+            signupViewScreen.signupSubmitButton.layer.cornerRadius = 5
         }
     }
     

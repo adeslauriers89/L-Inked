@@ -22,6 +22,7 @@ class LoginView: UIView {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginSubmitButton: UIButton!
     
     weak var delegate: LoginViewDelegate?
     

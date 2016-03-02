@@ -23,11 +23,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KT-KD-jkc">
                                         <rect key="frame" x="37" y="515" width="300" height="40"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.1279523630998452" green="0.13265830592105263" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="WKt-We-cHq"/>
                                             <constraint firstAttribute="width" constant="300" id="hPr-ML-k74"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -62,7 +63,7 @@
                                             <constraint firstAttribute="width" constant="136" id="Z5V-Ii-3I5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="36"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -624,8 +625,8 @@
         <image name="tattoo_machine" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="HQB-8c-rDJ"/>
         <segue reference="vrE-gy-vM0"/>
-        <segue reference="2qp-1F-0XZ"/>
-        <segue reference="MYl-IR-878"/>
+        <segue reference="H7q-z0-4Wg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2BC93621A7F8B296B91708FA /* Pods_L_Inked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */; };
-		A601B7EC1C8546CA00895A48 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A601B7EB1C85468900895A48 /* sample.mp4 */; };
-		A60388B31C7E2FEA00A837B7 /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */; };
-		A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B51C7E31EC00A837B7 /* VideoCutter.swift */; };
 		A60388B81C7E3BCE00A837B7 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */; };
 		A60388BC1C7E9C2000A837B7 /* TattooDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60388BB1C7E9C2000A837B7 /* TattooDetailViewController.swift */; };
 		A60DEC791C8245EE00CDBEA9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60DEC781C8245EE00CDBEA9 /* MapViewController.swift */; };
@@ -36,6 +33,7 @@
 		A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D8D5B1C7BEF3500C34B95 /* APIKeys.swift */; };
 		A6804B801C80FB2300F8E6B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6804B7F1C80FB2300F8E6B5 /* Constants.swift */; };
 		A6804B821C8127A600F8E6B5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6804B811C8127A600F8E6B5 /* MapKit.framework */; };
+		A6B0179D1C8684DC004858CE /* TattooClips.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A6B0179C1C8684CD004858CE /* TattooClips.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +48,6 @@
 
 /* Begin PBXFileReference section */
 		1002AF317DF7E934DCF85782 /* Pods-L-Inked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.release.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.release.xcconfig"; sourceTree = "<group>"; };
-		A601B7EB1C85468900895A48 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
-		A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
-		A60388B51C7E31EC00A837B7 /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
 		A60388B71C7E3BCE00A837B7 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A60388BA1C7E777F00A837B7 /* Linked-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Linked-Bridging-Header.h"; sourceTree = "<group>"; };
 		A60388BB1C7E9C2000A837B7 /* TattooDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooDetailViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +78,7 @@
 		A67D8D5B1C7BEF3500C34B95 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIKeys.swift; path = "L-Inked/APIKeys.swift"; sourceTree = "<group>"; };
 		A6804B7F1C80FB2300F8E6B5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6804B811C8127A600F8E6B5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A6B0179C1C8684CD004858CE /* TattooClips.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TattooClips.mp4; sourceTree = "<group>"; };
 		BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_L_Inked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE82410A2B00899353B7C08 /* Pods-L-Inked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-L-Inked.debug.xcconfig"; path = "Pods/Target Support Files/Pods-L-Inked/Pods-L-Inked.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,15 +119,6 @@
 				BD165B74D34122065F64B7F4 /* Pods_L_Inked.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A60388B41C7E301200A837B7 /* VideoSplashVC */ = {
-			isa = PBXGroup;
-			children = (
-				A60388B21C7E2FEA00A837B7 /* VideoSplashViewController.swift */,
-				A60388B51C7E31EC00A837B7 /* VideoCutter.swift */,
-			);
-			name = VideoSplashVC;
 			sourceTree = "<group>";
 		};
 		A66F00391C7FECDB00512CFA /* TattooVCs */ = {
@@ -175,7 +162,7 @@
 		A67D8D2B1C7BBBD500C34B95 /* L-Inked */ = {
 			isa = PBXGroup;
 			children = (
-				A601B7EB1C85468900895A48 /* sample.mp4 */,
+				A6B0179C1C8684CD004858CE /* TattooClips.mp4 */,
 				A67D8D561C7BC35900C34B95 /* Views */,
 				A67D8D501C7BC28B00C34B95 /* Model */,
 				A67D8D4E1C7BC27500C34B95 /* Controllers */,
@@ -202,7 +189,6 @@
 				A66FE7611C7CED50004FE3F0 /* HomeCollectionViewController.swift */,
 				A66F00391C7FECDB00512CFA /* TattooVCs */,
 				A66FE7671C7D010E004FE3F0 /* ArtistVCs */,
-				A60388B41C7E301200A837B7 /* VideoSplashVC */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -340,7 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A601B7EC1C8546CA00895A48 /* sample.mp4 in Resources */,
+				A6B0179D1C8684DC004858CE /* TattooClips.mp4 in Resources */,
 				A67D8D371C7BBBD500C34B95 /* LaunchScreen.storyboard in Resources */,
 				A60DEC7C1C824A0900CDBEA9 /* Main.storyboard in Resources */,
 				A67D8D551C7BC35000C34B95 /* SignupView.xib in Resources */,
@@ -416,9 +402,7 @@
 				A65307531C84CF7900B23172 /* ArtistAnnotationView.swift in Sources */,
 				A60388BC1C7E9C2000A837B7 /* TattooDetailViewController.swift in Sources */,
 				A67D8D5C1C7BEF3500C34B95 /* APIKeys.swift in Sources */,
-				A60388B61C7E31EC00A837B7 /* VideoCutter.swift in Sources */,
 				A67D8D581C7BC57100C34B95 /* LoginView.swift in Sources */,
-				A60388B31C7E2FEA00A837B7 /* VideoSplashViewController.swift in Sources */,
 				A66FE7621C7CED50004FE3F0 /* HomeCollectionViewController.swift in Sources */,
 				A66F00341C7F6BE900512CFA /* LinkedUser.swift in Sources */,
 				A63E9CF61C7D3A5D00BABFF8 /* Tattoo.swift in Sources */,

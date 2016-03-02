@@ -49,6 +49,9 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
 //            navigationItem.hidesBackButton = true
         } else {
         }
+        
+        
+
     }
     
     //MARK: CollectionVC Delegate
@@ -149,6 +152,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
         getData()
         
     }
+
     
     //MARK: General Functions
     
