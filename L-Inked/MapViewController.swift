@@ -131,7 +131,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let detailsBtn =  UIButton(type: .DetailDisclosure)
             annotationView?.rightCalloutAccessoryView = detailsBtn
             
-            let directionsBtn = UIButton(type: .ContactAdd)
+            
+          
+            let directionsBtn = UIButton(type: .DetailDisclosure)
+            directionsBtn.setImage(UIImage(named: "car"), forState: UIControlState.Normal)
+            
             annotationView?.leftCalloutAccessoryView = directionsBtn
 
             

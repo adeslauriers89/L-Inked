@@ -18,6 +18,7 @@ class TattooDetailViewController: UIViewController {
     var dvcTatsArray = [Tattoo]()
     
     @IBOutlet weak var tattooDetailImageView: PFImageView!
+    @IBOutlet weak var tattooDescriptionlabel: UILabel!
     
     //MARK: View controller life cycle
     
@@ -25,6 +26,7 @@ class TattooDetailViewController: UIViewController {
     
         tattooDetailImageView.file = tattoo.tattooImage
         tattooDetailImageView.loadInBackground()
+        tattooDescriptionlabel.text = tattoo.tattooDescription
         
 
     }

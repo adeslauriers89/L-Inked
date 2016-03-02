@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import CoreLocation
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     //MARK: Properties
     
@@ -23,12 +23,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var geoCoder = CLGeocoder()
     var shopGeopoint = PFGeoPoint()
     
+    let tvPlaceholder = "Tell us about yourself in a few lines.."
+    
     
     
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+    
         configureTextView()
         configureImageView()
         
@@ -51,8 +54,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             address = shopAddressTextField.text,
             about = aboutArtistTextView.text,
             profilePic = profilePicToUpload.image {
-                
-                // user.setObject(name, forKey: "Name")
+  
                 user.name = name
                 user.contactEmail = contactEmail
                 user.shopAddress = address
@@ -113,12 +115,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         
     }
-    
-//    @IBAction func logoutButtonPressed(sender: UIBarButtonItem) {
-//        
-//        LinkedUser.logOut()
-//        print("logged out")
-//    }
+
     
     @IBAction func uploadPhotoButtonPressed(sender: UIButton) {
     }
@@ -142,11 +139,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         aboutArtistTextView.layer.borderWidth = 1.0
         aboutArtistTextView.layer.borderColor = myGrey.CGColor
         
-        //aboutArtistTextView.text = "Tel"
+        aboutArtistTextView.delegate = self
         
-//        if aboutArtistTextView.text == nil {
-//            
-//        }
+
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if aboutArtistTextView.text == tvPlaceholder {
+            aboutArtistTextView.text = ""
+        }
+        
     }
     
     func dismissKeyboard() {
@@ -167,8 +169,13 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             artistNameTextField.text = currentUser.name
             shopAddressTextField.text = currentUser.shopAddress
             artistEmailTextField.text = currentUser.contactEmail
-            aboutArtistTextView.text = currentUser.aboutArtist
             
+            if currentUser.aboutArtist != "" {
+                aboutArtistTextView.text = currentUser.aboutArtist
+            } else {
+                aboutArtistTextView.text = tvPlaceholder
+            }
+        
             currentUser.profilePic.getDataInBackgroundWithBlock{ (data, error) -> Void in
                 guard let data = data,
                     let image = UIImage(data: data) else {return}

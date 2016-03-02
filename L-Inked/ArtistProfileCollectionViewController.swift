@@ -17,6 +17,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
 
     var artist = LinkedUser()
     var artistPortfolio = [Tattoo]()
+    let imageCache = NSCache()
   
     //MARK: ViewController Life Cycle
     
@@ -60,20 +61,33 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         
     }
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> CustomCollectionViewCell {
-     
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
+        
         let individual = artistPortfolio[indexPath.row]
-        
-        individual.tattooImage.getDataInBackgroundWithBlock { (data, error) -> Void in
+        if let objID = individual.objectId,
+            let cached = imageCache.objectForKey(objID) as? UIImage {
+                
+                cell.tattooImageView.image = cached
+        } else {
             
             
-            guard let data = data,
-                let image = UIImage(data: data) else { return }
-            cell.tattooImageView.image = image
+            cell.tattooImageView.image = nil
+            
+            individual.tattooImage.getDataInBackgroundWithBlock { (data, error) -> Void in
+                
+                
+                guard let data = data,
+                    let image = UIImage(data: data) else { return }
+                cell.tattooImageView.image = image
+                
+                if let objID = individual.objectId {
+                    self.imageCache.setObject(image, forKey: objID)
+                }
+            }
         }
-        
         return cell
-        }
+    }
     
     //MARK: MosaicLayout Delegate
     
@@ -103,6 +117,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         supplementaryView.artistNameLabel.text = artist.name
         
         supplementaryView.artistInfoTextView.text = "\(artist.aboutArtist)\r\n" + "\r\n" + "Shop Address: \(artist.shopAddress)"
+        supplementaryView.artistInfoTextView.setContentOffset(CGPointZero, animated: false)
         
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
