@@ -38,7 +38,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="By3-d8-FXd">
                                         <rect key="frame" x="150" y="621" width="74" height="30"/>
-                                        <state key="normal" title="No Thanks"/>
+                                        <state key="normal" title="No Thanks">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <segue destination="5dF-fI-r7C" kind="show" identifier="showMainViewControllerSegue" id="DPu-dV-yp2"/>
                                         </connections>

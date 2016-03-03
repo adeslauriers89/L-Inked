@@ -155,8 +155,8 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         mailComposerVC.mailComposeDelegate = self
         
         mailComposerVC.setToRecipients(["someone@somewhere.com"])
-        mailComposerVC.setSubject("Sending you an in-app e-mail...")
-        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        mailComposerVC.setSubject("L-Inked")
+        mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
     }
