@@ -19,6 +19,7 @@ class TattooDetailViewController: UIViewController {
     
     @IBOutlet weak var tattooDetailImageView: PFImageView!
     @IBOutlet weak var tattooDescriptionlabel: UILabel!
+    @IBOutlet weak var viewArtistButton: UIButton!
     
     //MARK: View controller life cycle
     
@@ -28,7 +29,14 @@ class TattooDetailViewController: UIViewController {
         tattooDetailImageView.loadInBackground()
         tattooDescriptionlabel.text = tattoo.tattooDescription
         
-
+        let indexOfPreviousVC = (navigationController?.viewControllers.count)!-2
+        if indexOfPreviousVC >= 0 {
+            if let previousVC = navigationController?.viewControllers[indexOfPreviousVC] {
+                if previousVC.isKindOfClass(ArtistProfileCollectionViewController) {
+                    viewArtistButton.hidden = true
+                }
+            }
+        }
     }
     
     //MARK: Segues

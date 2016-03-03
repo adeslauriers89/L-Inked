@@ -117,7 +117,11 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         supplementaryView.artistNameLabel.text = artist.name
         
         supplementaryView.artistInfoTextView.text = "\(artist.aboutArtist)\r\n" + "\r\n" + "Shop Address: \(artist.shopAddress)"
+        
         supplementaryView.artistInfoTextView.setContentOffset(CGPointZero, animated: false)
+        
+
+
         
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
@@ -176,6 +180,17 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func presentSignInPage(alert: UIAlertAction!) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navController = storyboard.instantiateViewControllerWithIdentifier("NavController")
+        
+        
+        self.presentViewController(navController, animated: true) { () -> Void in
+            
+        }
+    }
+    
     
     
     //MARK: Actions
@@ -188,7 +203,10 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
                 self.presentViewController(mailComposeViewController, animated: true, completion: nil)
             }
         } else {
-            
+            let alert = UIAlertController(title: "Sign In", message: "Please sign in before messaging an artist", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Sign In", style: UIAlertActionStyle.Default, handler: presentSignInPage))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -200,7 +218,9 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             
             if let cell = sender as? CustomCollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) {
                 
+              
                 destinationViewController.tattoo = artistPortfolio[indexPath.row]
+                
                 
             }
         }
@@ -213,6 +233,8 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             destinationViewController.zoomLocation = zoomLocation
         }
     }
+    
+    
 
 }
 

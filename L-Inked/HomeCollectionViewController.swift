@@ -30,14 +30,15 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
         
         locationManager.askForPermission()
         
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-      
+        
+      navigationController?.setNavigationBarHidden(false, animated: false)
         getData()
         
         
@@ -99,7 +100,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             if let cell = sender as? CustomCollectionViewCell, indexPath = collectionView?.indexPathForCell(cell) {
                 
                 destinationViewController.tattoo = tattoosArray[indexPath.row]
-             //   destinationViewController.dvcTatsArray = tattoosArray
+                destinationViewController.dvcTatsArray = tattoosArray
             }
         } else if segue.identifier == "segueToMyProfile" {
             let currentUser = LinkedUser.currentUser()
@@ -142,7 +143,6 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     //MARK: Actions
     
     @IBAction func logoutToMainViewController(segue:UIStoryboardSegue) {
-        
         LinkedUser.logOut()
         print("logged out")
     }
@@ -225,6 +225,19 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
         } else {
             // show a dialog bugging them to turn on location services
             
+            
+            // encapuslate func below, we use it twice
+            
+                    query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+                        guard let tattoos = objects as? [Tattoo] else {
+                            return
+                        }
+                        self.tattoosArray = tattoos
+                        self.collectionView?.reloadData()
+                        
+                    }
+            
             return
         }
         
@@ -238,5 +251,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             
         }
     }
+    
+
     
 }

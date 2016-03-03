@@ -15,15 +15,43 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBOutlet weak var tattooToUpload: UIImageView!
     @IBOutlet weak var tattooDescriptionTextField: UITextField!
+    @IBOutlet weak var tattooImageTopConstraint: NSLayoutConstraint!
     
+    var originalTopConstraint = CGFloat()
     
     
     //MARK: View Controller life cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:" , name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:" , name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        originalTopConstraint = tattooImageTopConstraint.constant
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     
     //MARK: Actions
     
@@ -56,6 +84,10 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
             if success {
                 print("saved tat")
                 
+                let successAlert = UIAlertController(title: "Success", message: "Tattoo was successfully uploaded", preferredStyle: UIAlertControllerStyle.Alert)
+                successAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(successAlert, animated: true, completion: nil)
+                
                 
                 user.tattoos.append(newTat)
                 
@@ -68,6 +100,9 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
                 }
             } else {
                 print("Error: \(error)")
+                let errorAlert = UIAlertController(title: "Error", message: "Error uploading tattoo", preferredStyle: UIAlertControllerStyle.Alert)
+                errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(errorAlert, animated: true, completion: nil)
             }
         })
         
@@ -94,8 +129,7 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         imagePickerController.sourceType = .PhotoLibrary
         imagePickerController.delegate = self
         presentViewController(imagePickerController, animated: true, completion: nil)
-
-        
+     
         
     }
     
@@ -113,11 +147,39 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         
     }
     
-    //MARK: General Functions
+    //MARK: General Methods
     
-//    func addTattooToArray() {
-//        
-//    }
+    func keyboardWillAppear(notification: NSNotification) {
+        
+        
+            if tattooDescriptionTextField.isFirstResponder() == true {
+                if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                    
+                    let keyboardOrigin = view.frame.size.height - keyboardSize.height
+                    
+                    if tattooDescriptionTextField.frame.origin.y + tattooDescriptionTextField.frame.height > keyboardOrigin {
+                        
+                        let distanceToMoveConstraint = tattooDescriptionTextField.frame.origin.y - keyboardOrigin + tattooDescriptionTextField.frame.height + 10
+                        tattooImageTopConstraint.constant -= distanceToMoveConstraint
+                        UIView.animateWithDuration(0.5) { self.view.layoutIfNeeded()}
+                        print(distanceToMoveConstraint)
+                        
+                    }
+                }
+            }
+        
+        
+    }
+    
+    func keyboardWillDisappear(notification: NSNotification) {
+        if tattooImageTopConstraint.constant != originalTopConstraint {
+            tattooImageTopConstraint.constant = originalTopConstraint
+            UIView.animateWithDuration(0.5) { self.view.layoutIfNeeded()}
+            
+        }
+        
+    }
+
     
     func dismissKeyboard() {
         

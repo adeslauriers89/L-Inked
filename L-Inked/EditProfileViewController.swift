@@ -19,7 +19,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var shopAddressTextField: UITextField!
     @IBOutlet weak var artistEmailTextField: UITextField!
     @IBOutlet weak var aboutArtistTextView: UITextView!
+    @IBOutlet weak var profilePicTopConstraint: NSLayoutConstraint!
     
+    
+    var originalTopConstraint = CGFloat()
     var geoCoder = CLGeocoder()
     var shopGeopoint = PFGeoPoint()
     
@@ -40,6 +43,30 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:" , name: UIKeyboardWillShowNotification, object: nil)
+        
+             NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:" , name: UIKeyboardWillHideNotification, object: nil)
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        originalTopConstraint = profilePicTopConstraint.constant
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
@@ -103,9 +130,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     if success {
                         print("Saved!!")
                         
+                        let successAlert = UIAlertController(title: "Success", message: "Profile was successfully uploaded", preferredStyle: UIAlertControllerStyle.Alert)
+                        successAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(successAlert, animated: true, completion: nil)
+                        
+                        
                         
                     } else {
                         print("Error: \(error)")
+                        print("Error: \(error)")
+                        let errorAlert = UIAlertController(title: "Error", message: "Error updating profile", preferredStyle: UIAlertControllerStyle.Alert)
+                        errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(errorAlert, animated: true, completion: nil)
+                        
+                        
                     }
                 })
                 
@@ -185,6 +223,39 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         }
         
        
+    }
+    
+    func keyboardWillAppear(notification: NSNotification) {
+        
+        for subview in self.view.subviews {
+            if subview.isFirstResponder() == true {
+                if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                    
+                    let keyboardOrigin = view.frame.size.height - keyboardSize.height
+                    
+                    if subview.frame.origin.y + subview.frame.height > keyboardOrigin {
+                       // profilePicTopConstraint
+                        print("im hidden")
+                        
+                        let distanceToMoveConstraint = subview.frame.origin.y - keyboardOrigin + subview.frame.height + 10
+                        profilePicTopConstraint.constant -= distanceToMoveConstraint
+                        UIView.animateWithDuration(0.5) { self.view.layoutIfNeeded()}
+                        print(distanceToMoveConstraint)
+                        
+                    }
+                }
+            }
+        }
+      
+    }
+    
+    func keyboardWillDisappear(notification: NSNotification) {
+        if profilePicTopConstraint.constant != originalTopConstraint {
+            profilePicTopConstraint.constant = originalTopConstraint
+            UIView.animateWithDuration(0.5) { self.view.layoutIfNeeded()}
+            
+        }
+        
     }
     
     // MARK: UIImagePickerControllerDelegate

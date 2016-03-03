@@ -119,6 +119,9 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
                 self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
             } else {
                 print("ERROR")
+                let errorAlert = UIAlertController(title: "Error", message: "Error logging in please try again\(error)", preferredStyle: UIAlertControllerStyle.Alert)
+                errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(errorAlert, animated: true, completion: nil)
             }
         })
         
@@ -143,6 +146,10 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
                 self.performSegueWithIdentifier("showMainViewControllerSegue", sender: self)
             } else {
                 print("Error")
+                
+                let errorAlert = UIAlertController(title: "Error", message: "Error signing up please try again\(error)", preferredStyle: UIAlertControllerStyle.Alert)
+                errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(errorAlert, animated: true, completion: nil)
             }
             
         }
