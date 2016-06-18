@@ -40,7 +40,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         fillTextFieldsWithData()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
     }
@@ -48,9 +48,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:" , name: UIKeyboardWillShowNotification, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillAppear(_:)) , name: UIKeyboardWillShowNotification, object: nil)
         
-             NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:" , name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)) , name: UIKeyboardWillHideNotification, object: nil)
         
         
     }

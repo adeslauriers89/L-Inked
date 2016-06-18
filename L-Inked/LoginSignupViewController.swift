@@ -42,7 +42,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
         
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginSignupViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         
@@ -68,7 +68,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
         
    
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "loopVideo",
+            selector: #selector(LoginSignupViewController.loopVideo),
             name: AVPlayerItemDidPlayToEndTimeNotification,
             object: nil)
           //////

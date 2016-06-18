@@ -18,7 +18,7 @@ class MyLocationManager: NSObject, CLLocationManagerDelegate {
     
     
     func askForPermission() {
-        if (locationManager.respondsToSelector("requestWhenInUseAuthorization")) {
+        if (locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization))) {
             locationManager.requestWhenInUseAuthorization()
         }
         
