@@ -63,7 +63,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     }
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> CustomCollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ReuseIDs.cell, forIndexPath: indexPath) as! CustomCollectionViewCell
         
         let individual = artistPortfolio[indexPath.row]
         if let objID = individual.objectId,

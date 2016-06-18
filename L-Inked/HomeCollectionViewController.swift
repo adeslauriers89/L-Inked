@@ -65,7 +65,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> CustomCollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ReuseIDs.cell, forIndexPath: indexPath) as! CustomCollectionViewCell
         
         let individual = tattoosArray[indexPath.row]
             if let objId = individual.objectId,
