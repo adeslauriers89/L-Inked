@@ -113,6 +113,26 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         
 
     }
+    
+    /*
+     
+     let alertController = UIAlertController(title: "Default AlertController", message: "A standard alert", preferredStyle: .Alert)
+     
+     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+     println("you have pressed the Cancel button");
+     }
+     alertController.addAction(cancelAction)
+     
+     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+     println("you have pressed OK button");
+     }
+     alertController.addAction(OKAction)
+     
+     self.presentViewController(alertController, animated: true, completion:nil)
+ 
+    */
+    
+    
 
     @IBAction func cancelButtonPressed(sender: UIButton) {
         tattooToUpload.image = nil
@@ -120,21 +140,67 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
 
     @IBAction func addImageButtonPressed(sender: UIBarButtonItem) {
         
-        let cameraPickerController = UIImagePickerController()
-        cameraPickerController.sourceType = .Camera
-        cameraPickerController.delegate = self
-        presentViewController(cameraPickerController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "Photo AlertController", message: nil, preferredStyle: .ActionSheet)
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+            print("cancelled")
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (action:UIAlertAction) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .PhotoLibrary
+            imagePickerController.delegate = self
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+        
+        alertController.addAction(libraryAction)
+        
+        let cameraAction = UIAlertAction(title: "Take Photo", style: .Default) { (action:UIAlertAction) in
+            let cameraPickerController = UIImagePickerController()
+            cameraPickerController.sourceType = .Camera
+            cameraPickerController.delegate = self
+            self.presentViewController(cameraPickerController, animated: true, completion: nil)
+        }
+        
+        alertController.addAction(cameraAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+
 
     }
     
     @IBAction func takePhotoButtonPressed(sender: UIButton) {
         
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .PhotoLibrary
-        imagePickerController.delegate = self
-        presentViewController(imagePickerController, animated: true, completion: nil)
-     
+//        let alertController = UIAlertController(title: "Photo AlertController", message: nil, preferredStyle: .ActionSheet)
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+//            print("cancelled")
+//        }
+//        
+//        alertController.addAction(cancelAction)
+//        
+//        let libraryAction = UIAlertAction(title: "Photo Library", style: .Default) { (action:UIAlertAction) in
+//                    let imagePickerController = UIImagePickerController()
+//                    imagePickerController.sourceType = .PhotoLibrary
+//                    imagePickerController.delegate = self
+//                    self.presentViewController(imagePickerController, animated: true, completion: nil)
+//        }
+//        
+//        alertController.addAction(libraryAction)
+//        
+//        let cameraAction = UIAlertAction(title: "Take Photo", style: .Default) { (action:UIAlertAction) in
+//            let cameraPickerController = UIImagePickerController()
+//            cameraPickerController.sourceType = .Camera
+//            cameraPickerController.delegate = self
+//            self.presentViewController(cameraPickerController, animated: true, completion: nil)
+//        }
+//        
+//        alertController.addAction(cameraAction)
+//        
+//        self.presentViewController(alertController, animated: true, completion: nil)
+
         
     }
     
