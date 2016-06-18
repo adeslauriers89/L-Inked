@@ -227,18 +227,18 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
             
             
             // encapuslate func below, we use it twice
+//            
+//                    query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+//            
+//                        guard let tattoos = objects as? [Tattoo] else {
+//                            return
+//                        }
+//                        self.tattoosArray = tattoos
+//                        self.collectionView?.reloadData()
+//                        
+//                    }
             
-                    query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            
-                        guard let tattoos = objects as? [Tattoo] else {
-                            return
-                        }
-                        self.tattoosArray = tattoos
-                        self.collectionView?.reloadData()
-                        
-                    }
-            
-            return
+            //return
         }
         
         query?.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
