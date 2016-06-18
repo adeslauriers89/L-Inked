@@ -27,6 +27,7 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     // MARK: View life cycle
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         signupViewScreen?.signupSubmitButton.layer.cornerRadius = 5
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -34,7 +35,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
     }
     
     override func viewDidLoad() {
-        ///////////////////
         super.viewDidLoad()
         
         loginButton.layer.cornerRadius = 5
@@ -71,7 +71,6 @@ class LoginSignupViewController: UIViewController, LoginViewDelegate, SignupView
             selector: #selector(LoginSignupViewController.loopVideo),
             name: AVPlayerItemDidPlayToEndTimeNotification,
             object: nil)
-          //////
 
     }
 

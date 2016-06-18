@@ -47,12 +47,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //MARK: ViewController Life Cycle
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         initiateMap()
 
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         locationManager.askForPermission()
     }
     

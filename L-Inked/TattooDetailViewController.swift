@@ -24,6 +24,7 @@ class TattooDetailViewController: UIViewController {
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
     
         tattooDetailImageView.file = tattoo.tattooImage
         tattooDetailImageView.loadInBackground()

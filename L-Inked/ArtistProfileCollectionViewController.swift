@@ -22,6 +22,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     //MARK: ViewController Life Cycle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         let mosaicLayout = FMMosaicLayout()
         collectionView!.collectionViewLayout = mosaicLayout;
@@ -34,7 +35,7 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     }
 
     override func viewWillAppear(animated: Bool) {
-        
+        super.viewWillAppear(animated)
         
         let query = Tattoo.query()
         query!.whereKey("tattooArtist", equalTo:artist)

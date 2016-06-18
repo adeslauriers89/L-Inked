@@ -25,8 +25,6 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//        view.addGestureRecognizer(tap)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UploadTattooViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -35,18 +33,15 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:" , name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillAppear(_:)) , name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillDisappear:" , name: UIKeyboardWillHideNotification, object: nil)
+
         
     }
     
-
-
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

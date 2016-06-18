@@ -27,7 +27,7 @@ class HomeCollectionViewController: UICollectionViewController, FMMosaicLayoutDe
     //MARK: View controller life cycle
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         locationManager.askForPermission()
         
         
