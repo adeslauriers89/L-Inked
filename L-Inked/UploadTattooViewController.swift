@@ -60,8 +60,38 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     //MARK: Actions
     
+    /*
+     
+     let alertController = UIAlertController(title: "Default AlertController", message: "A standard alert", preferredStyle: .Alert)
+     
+     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
+     println("you have pressed the Cancel button");
+     }
+     alertController.addAction(cancelAction)
+     
+     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+     println("you have pressed OK button");
+     }
+     alertController.addAction(OKAction)
+     
+     self.presentViewController(alertController, animated: true, completion:nil)
+     
+     */
+    
     
     @IBAction func saveButtonPressed(sender: UIButton) {
+        
+        if tattooToUpload.image == nil || tattooToUpload.image == UIImage(named: "addpic_copy") {
+            let saveAlertController = UIAlertController(title: "No Photo Selected", message: "Please upload or take a photo with the camera button", preferredStyle: .Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction) in
+                
+            })
+            
+            saveAlertController.addAction(okAction)
+            self.presentViewController(saveAlertController, animated: true, completion: nil)
+            
+        } else {
         
         guard let user = LinkedUser.currentUser(),
             let tatDescription = tattooDescriptionTextField.text,
@@ -111,31 +141,16 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
             }
         })
         
-
+        }
     }
-    
-    /*
-     
-     let alertController = UIAlertController(title: "Default AlertController", message: "A standard alert", preferredStyle: .Alert)
-     
-     let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
-     println("you have pressed the Cancel button");
-     }
-     alertController.addAction(cancelAction)
-     
-     let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
-     println("you have pressed OK button");
-     }
-     alertController.addAction(OKAction)
-     
-     self.presentViewController(alertController, animated: true, completion:nil)
- 
-    */
-    
     
 
     @IBAction func cancelButtonPressed(sender: UIButton) {
         tattooToUpload.image = nil
+        
+        tattooToUpload.image = UIImage(named: "addpic_copy")
+        
+        tattooDescriptionTextField.text = ""
     }
 
     @IBAction func addImageButtonPressed(sender: UIBarButtonItem) {
@@ -143,7 +158,6 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
         let alertController = UIAlertController(title: "Photo AlertController", message: nil, preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
-            print("cancelled")
         }
         
         alertController.addAction(cancelAction)
@@ -171,7 +185,7 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
 
     }
     
-    @IBAction func takePhotoButtonPressed(sender: UIButton) {
+//    @IBAction func takePhotoButtonPressed(sender: UIButton) {
         
 //        let alertController = UIAlertController(title: "Photo AlertController", message: nil, preferredStyle: .ActionSheet)
 //        
@@ -202,7 +216,7 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
 //        self.presentViewController(alertController, animated: true, completion: nil)
 
         
-    }
+//    }
     
     
     // MARK: UIImagePickerControllerDelegate

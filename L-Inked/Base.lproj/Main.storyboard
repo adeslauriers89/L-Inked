@@ -576,34 +576,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addpic copy" translatesAutoresizingMaskIntoConstraints="NO" id="9pp-Xi-eNN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addpic_copy" translatesAutoresizingMaskIntoConstraints="NO" id="9pp-Xi-eNN">
                                 <rect key="frame" x="62" y="89" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="aA3-cj-ZkF"/>
                                     <constraint firstAttribute="height" constant="250" id="qv5-MG-hPn"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-kn-OYp">
-                                <rect key="frame" x="62" y="89" width="250" height="250"/>
-                                <connections>
-                                    <action selector="takePhotoButtonPressed:" destination="xuG-zD-mlA" eventType="touchUpInside" id="A8a-fP-Z7g"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IZt-kn-OYp" firstAttribute="centerY" secondItem="9pp-Xi-eNN" secondAttribute="centerY" id="0g2-eh-xi5"/>
                             <constraint firstItem="Jcn-qr-oG8" firstAttribute="leading" secondItem="a7I-0T-uAc" secondAttribute="leading" id="4Ab-Sx-cew"/>
                             <constraint firstItem="o7A-Xp-4go" firstAttribute="trailing" secondItem="a7I-0T-uAc" secondAttribute="trailing" id="7is-kb-j62"/>
                             <constraint firstItem="9pp-Xi-eNN" firstAttribute="top" secondItem="5B7-gY-Wxx" secondAttribute="bottom" constant="25" id="AWC-s7-z67"/>
                             <constraint firstItem="86i-ck-3KW" firstAttribute="top" secondItem="Jcn-qr-oG8" secondAttribute="bottom" constant="20" id="MlM-77-V0I"/>
                             <constraint firstItem="a7I-0T-uAc" firstAttribute="top" secondItem="9pp-Xi-eNN" secondAttribute="bottom" constant="25" id="W8I-Il-r5R"/>
-                            <constraint firstItem="IZt-kn-OYp" firstAttribute="width" secondItem="9pp-Xi-eNN" secondAttribute="width" id="X7P-Ex-f89"/>
                             <constraint firstItem="a7I-0T-uAc" firstAttribute="width" secondItem="9pp-Xi-eNN" secondAttribute="width" id="Y7h-mr-YDz"/>
                             <constraint firstItem="86i-ck-3KW" firstAttribute="top" secondItem="o7A-Xp-4go" secondAttribute="bottom" constant="20" id="dn1-aJ-ygd"/>
                             <constraint firstItem="9pp-Xi-eNN" firstAttribute="centerX" secondItem="B1a-yN-Ul9" secondAttribute="centerX" id="g3M-gi-3VT"/>
-                            <constraint firstItem="IZt-kn-OYp" firstAttribute="centerX" secondItem="9pp-Xi-eNN" secondAttribute="centerX" id="myJ-LX-jAg"/>
-                            <constraint firstItem="IZt-kn-OYp" firstAttribute="height" secondItem="9pp-Xi-eNN" secondAttribute="height" id="pZh-OM-3qk"/>
                             <constraint firstItem="a7I-0T-uAc" firstAttribute="centerX" secondItem="B1a-yN-Ul9" secondAttribute="centerX" id="rrW-G7-uiG"/>
                         </constraints>
                     </view>
@@ -651,7 +641,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addpic copy" width="128" height="128"/>
+        <image name="addpic_copy" width="128" height="128"/>
         <image name="default_user" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
