@@ -12,8 +12,12 @@ class ProfileReusableView: UICollectionReusableView {
 
     @IBOutlet weak var artistProfilePic: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
-
-
     @IBOutlet weak var artistInfoTextView: UITextView!
+    
+    
+    @IBOutlet weak var updateProfileButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var sendMessageButton: UIButton!
+
     
 }

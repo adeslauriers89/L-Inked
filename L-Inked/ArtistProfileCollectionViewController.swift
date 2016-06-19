@@ -18,6 +18,11 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     var artist = LinkedUser()
     var artistPortfolio = [Tattoo]()
     let imageCache = NSCache()
+    
+    var tattoosToDelete =  [Tattoo]()
+    
+
+    
   
     //MARK: ViewController Life Cycle
     
@@ -47,9 +52,37 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             }
             self.artistPortfolio = tattoos
             self.collectionView?.reloadData()
-    
         }
+    }
+    
 
+    
+
+//    // MARK:- Editing
+    
+
+    
+//    override func setEditing(editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        collectionView?.allowsMultipleSelection = editing
+//        toolBar.hidden = !editing
+//    }
+    
+//    override func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+//        addToList.append(objectsArray[indexPath.row])
+//        var cell = collectionView.cellForItemAtIndexPath(indexPath)
+//        cell.layer.borderWidth = 2.0
+//        cell.layer.borderColor = UIColor.grayColor().CGColor
+//    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        tattoosToDelete.append(artistPortfolio[indexPath.row])
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        cell!.layer.borderWidth = 2.0
+        cell!.layer.borderColor = UIColor.redColor().CGColor
+        
+        print(tattoosToDelete.count)
+        
     }
     
     //MARK: CollectionViewController Delegate
@@ -115,14 +148,20 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
     
         let supplementaryView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", forIndexPath: indexPath) as! ProfileReusableView
         
+        
+        
         supplementaryView.artistNameLabel.text = artist.name
-        
         supplementaryView.artistInfoTextView.text = "\(artist.aboutArtist)\r\n" + "\r\n" + "Shop Address: \(artist.shopAddress)"
-        
         supplementaryView.artistInfoTextView.setContentOffset(CGPointZero, animated: false)
         
-
-
+        let currentUser = LinkedUser.currentUser()
+        if currentUser != artist {
+            supplementaryView.updateProfileButton.hidden = true
+        } else {
+            supplementaryView.sendMessageButton.hidden = true
+            supplementaryView.mapButton.hidden = true
+        }
+        
         
         
         artist.profilePic.getDataInBackgroundWithBlock { (data, error) -> Void in
@@ -210,6 +249,13 @@ class ArtistProfileCollectionViewController: UICollectionViewController, FMMosai
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
+    
+    
+    @IBAction func editPhotosButton(sender: UIButton) {
+        
+        setEditing(true, animated: true)
+    }
+    
     
     //MARK: Segue
     

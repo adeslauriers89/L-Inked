@@ -253,7 +253,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="3ee-6g-nMp" customClass="CustomCollectionViewCell" customModule="L_Inked" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="464" width="104" height="110"/>
+                                <rect key="frame" x="0.0" y="528" width="104" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="104" height="110"/>
@@ -279,7 +279,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="bpW-kU-iRh" customClass="ProfileReusableView" customModule="L_Inked" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="464"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="464"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_user" translatesAutoresizingMaskIntoConstraints="NO" id="VX0-RY-ABd">
@@ -330,6 +330,17 @@
                                         <segue destination="RQV-2e-8vv" kind="show" identifier="showMapFromArtist" id="MYl-IR-878"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tL-XL-BaO">
+                                    <rect key="frame" x="127" y="339" width="120" height="30"/>
+                                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="dNX-Zc-icy"/>
+                                    </constraints>
+                                    <state key="normal" title="Update Profile"/>
+                                    <connections>
+                                        <action selector="editPhotosButton:" destination="RlJ-q4-tKh" eventType="touchUpInside" id="Dc6-Oa-QvS"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -338,7 +349,9 @@
                                 <constraint firstItem="p05-aX-s1l" firstAttribute="centerX" secondItem="bpW-kU-iRh" secondAttribute="centerX" id="5MZ-js-2u5"/>
                                 <constraint firstItem="p05-aX-s1l" firstAttribute="leading" secondItem="bpW-kU-iRh" secondAttribute="leadingMargin" constant="4" id="BDa-7W-9yu"/>
                                 <constraint firstItem="nOo-TV-xf2" firstAttribute="centerX" secondItem="bpW-kU-iRh" secondAttribute="centerX" id="Cvk-Bb-zEL"/>
+                                <constraint firstItem="5tL-XL-BaO" firstAttribute="centerX" secondItem="bpW-kU-iRh" secondAttribute="centerX" id="H26-Gz-daj"/>
                                 <constraint firstItem="dAf-BV-L03" firstAttribute="top" secondItem="nOo-TV-xf2" secondAttribute="top" id="JWR-SK-KQ9"/>
+                                <constraint firstItem="5tL-XL-BaO" firstAttribute="top" secondItem="p05-aX-s1l" secondAttribute="bottom" constant="20" id="Mci-J0-aah"/>
                                 <constraint firstItem="dAf-BV-L03" firstAttribute="leading" secondItem="bpW-kU-iRh" secondAttribute="leadingMargin" constant="80" id="ONl-Q4-YdF"/>
                                 <constraint firstAttribute="bottomMargin" secondItem="nOo-TV-xf2" secondAttribute="bottom" constant="8" id="P6B-kY-qrQ"/>
                                 <constraint firstItem="p05-aX-s1l" firstAttribute="top" secondItem="69R-rh-71B" secondAttribute="bottom" constant="10" id="RAc-Za-w96"/>
@@ -369,6 +382,9 @@
                                 <outlet property="artistInfoTextView" destination="p05-aX-s1l" id="XMs-yn-KmV"/>
                                 <outlet property="artistNameLabel" destination="69R-rh-71B" id="chi-Xn-jQv"/>
                                 <outlet property="artistProfilePic" destination="VX0-RY-ABd" id="FAZ-0b-983"/>
+                                <outlet property="mapButton" destination="dAf-BV-L03" id="sHo-xC-fzm"/>
+                                <outlet property="sendMessageButton" destination="nOo-TV-xf2" id="oRs-tX-DDG"/>
+                                <outlet property="updateProfileButton" destination="5tL-XL-BaO" id="WqU-Uq-YWM"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -653,8 +669,8 @@
         <image name="default_user" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2qp-1F-0XZ"/>
         <segue reference="TYz-25-nL3"/>
+        <segue reference="HQB-8c-rDJ"/>
         <segue reference="MYl-IR-878"/>
     </inferredMetricsTieBreakers>
 </document>
