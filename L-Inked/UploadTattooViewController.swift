@@ -81,6 +81,9 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBAction func saveButtonPressed(sender: UIButton) {
         
+        //sender.userInteractionEnabled = false
+        view.userInteractionEnabled = false
+        
         if tattooToUpload.image == nil || tattooToUpload.image == UIImage(named: "addpic_copy") {
             let saveAlertController = UIAlertController(title: "No Photo Selected", message: "Please upload or take a photo with the camera button", preferredStyle: .Alert)
             
@@ -120,9 +123,10 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
                 print("saved tat")
                 
                 let successAlert = UIAlertController(title: "Success", message: "Tattoo was successfully uploaded", preferredStyle: UIAlertControllerStyle.Alert)
-                successAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                successAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(successAlert, animated: true, completion: nil)
                 
+                self.view.userInteractionEnabled = true
                 
                 user.tattoos.append(newTat)
                 
@@ -138,24 +142,27 @@ class UploadTattooViewController: UIViewController, UIImagePickerControllerDeleg
                 let errorAlert = UIAlertController(title: "Error", message: "Error uploading tattoo", preferredStyle: UIAlertControllerStyle.Alert)
                 errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(errorAlert, animated: true, completion: nil)
+                
+                self.view.userInteractionEnabled = true
+
             }
         })
         
         }
+        
+        
     }
     
 
     @IBAction func cancelButtonPressed(sender: UIButton) {
         tattooToUpload.image = nil
-        
         tattooToUpload.image = UIImage(named: "addpic_copy")
-        
         tattooDescriptionTextField.text = ""
     }
 
     @IBAction func addImageButtonPressed(sender: UIBarButtonItem) {
         
-        let alertController = UIAlertController(title: "Photo AlertController", message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action:UIAlertAction!) in
         }
